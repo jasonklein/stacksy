@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image_1: MyString
+  image_2: MyString
+  image_3: MyString
+  image_4: MyString
+  image_5: MyString
+  fav_characters: MyText
+  fav_spots: MyText
+  fav_places: MyText
+  guilty_pleasure: MyString
+  occupation: MyString
+  icon: MyString
+  interests: MyText
+  link: MyString
+  quip: MyString
+  flags: 1
+  fb_interests: MyText
+
+two:
+  image_1: MyString
+  image_2: MyString
+  image_3: MyString
+  image_4: MyString
+  image_5: MyString
+  fav_characters: MyText
+  fav_spots: MyText
+  fav_places: MyText
+  guilty_pleasure: MyString
+  occupation: MyString
+  icon: MyString
+  interests: MyText
+  link: MyString
+  quip: MyString
+  flags: 1
+  fb_interests: MyText
