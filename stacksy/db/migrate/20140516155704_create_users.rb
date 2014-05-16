@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :gender
       t.string :relationship_status
-      t.number :age
+      t.integer :age
       t.string :location
       t.string :role
       t.string :other
