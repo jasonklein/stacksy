@@ -11,6 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20140516161834) do
+
+  create_table "profiles", :force => true do |t|
+    t.string   "image_1",         :default => "default.jpg", :null => false
+    t.string   "image_2"
+    t.string   "image_3"
+    t.string   "image_4"
+    t.string   "image_5"
+    t.text     "fav_characters"
+    t.text     "fav_spots"
+    t.text     "fav_places"
+    t.string   "guilty_pleasure"
+    t.string   "occupation"
+    t.string   "icon"
+    t.text     "interests"
+    t.string   "link"
+    t.string   "quip"
+    t.integer  "flags",           :default => 0,             :null => false
+    t.text     "fb_interests"
+    t.integer  "user_id",                                    :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name",                                      :null => false
+    t.string   "gender",                                    :null => false
+    t.string   "relationship_status", :default => "single", :null => false
+    t.integer  "age",                                       :null => false
+    t.string   "location",                                  :null => false
+    t.string   "role",                :default => "basic",  :null => false
+    t.string   "other",               :default => "",       :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
 
 end
