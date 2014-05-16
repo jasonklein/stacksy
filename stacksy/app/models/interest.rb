@@ -1,3 +1,5 @@
 class Interest < ActiveRecord::Base
   attr_accessible :option, :user_id
+
+  belongs_to :user
 end
