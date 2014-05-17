@@ -7,7 +7,10 @@ resources :users do
   resources :messages
   resources :pings
   resources :profiles
+  get "search"
 end
+
+
 
 root to: 'home#index'
 
