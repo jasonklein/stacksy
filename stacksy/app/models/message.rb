@@ -2,7 +2,7 @@ class Message < ActiveRecord::Base
   attr_accessible :content, :recepient_id, :sender_id
 
   belongs_to :sender, class_name: "User"
-  has_one :recepient
+  belongs_to :recepient, class_name: "User"
 
-  accepts_nested_attributes_for :sender
+
 end
