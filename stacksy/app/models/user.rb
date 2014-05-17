@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
    has_many :blocks, foreign_key: "blocked_id", dependent: :destroy
 
   def self.from_omniauth(auth)
+    raise
     if user = User.find_by_email(auth.info.email)
       user.provider = auth.provider
       user.uid = auth.uid
@@ -35,8 +36,8 @@ class User < ActiveRecord::Base
         user.name = auth.info.name
         user.email = auth.info.email
         user.location = auth.info.location
-        user.gender = auth.extra.raw_info.gender
-        user.age = 18
+        user.gender = auth.extra.raw_info.gender    
+        user.birthday = auth.extra.raw_info.birthday
       end
     end
   end

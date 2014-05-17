@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140517141725) do
+ActiveRecord::Schema.define(:version => 20140517202130) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20140517141725) do
     t.string   "name",                                         :null => false
     t.string   "gender",                                       :null => false
     t.string   "relationship_status",    :default => "single", :null => false
-    t.integer  "age",                                          :null => false
+    t.date     "birthday",                                     :null => false
     t.string   "location",                                     :null => false
     t.string   "role",                   :default => "basic",  :null => false
     t.string   "other",                  :default => "",       :null => false
