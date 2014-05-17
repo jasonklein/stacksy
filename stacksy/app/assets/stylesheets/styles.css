@@ -1,0 +1,30 @@
+
+
+body{
+  text-align: center;  
+}
+
+header{
+  margin-left:auto;
+  margin-right: auto;
+}
+
+#right_sidebar{
+  float: right;
+  height: 100%;
+  width: 280px;
+  
+}
+
+#right_sidebar nav{
+  position: fixed;
+  height: 100%;
+  border-left: 1px black solid;
+  width: 200px;
+  top: 0;
+  right: 0;
+}
+
+nav ul{
+  list-style: none;
+}
