@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :interests, dependent: :destroy
 
   has_many :messages, foreign_key: "sender_id"
-  has_many :messages, foreign_key: "recepient_id"
+  has_many :messages, foreign_key: "recipient_id"
 
   has_many :pings, foreign_key: "pinger_id"
   has_many :pings, foreign_key: "pinged_id"
