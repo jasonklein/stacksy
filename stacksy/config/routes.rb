@@ -1,4 +1,16 @@
 Stacksy::Application.routes.draw do
+
+resources :users do
+  resources :interests
+  resources :blocks
+  resources :favorites
+  resources :messages
+  resources :pings
+  resources :profiles
+end
+
+root to: 'home#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
