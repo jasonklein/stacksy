@@ -37,7 +37,9 @@ class User < ActiveRecord::Base
         user.email = auth.info.email
         user.location = auth.info.location
         user.gender = auth.extra.raw_info.gender    
-        user.birthday = auth.extra.raw_info.birthday
+        
+        birthday = auth.extra.raw_info.birthday
+        user.birthday = Date.strptime(birthday, '%m/%d/%Y')
       end
     end
   end
