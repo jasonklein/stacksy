@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pinger_id: 1
+  pinged_id: 1
+  ping_type: MyString
+
+two:
+  pinger_id: 1
+  pinged_id: 1
+  ping_type: MyString
