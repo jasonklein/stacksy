@@ -24,29 +24,29 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :profile
 
-  def self.from_omniauth(auth)
-    if user = User.find_by_email(auth.info.email)
-      user.provider = auth.provider
-      user.uid = auth.uid
+  def self.from_omniauth(data)
+    if user = User.find_by_email(data.info.email)
+      user.provider = data.provider
+      user.uid = data.uid
       user
     else
-      where(auth.slice(:provider, :uid)).first_or_create do |user|
-        user.provider = auth.provider
-        user.uid = auth.uid
+      where(data.slice(:provider, :uid)).first_or_create do |user|
+        user.provider = data.provider
+        user.uid = data.uid
         user.password = Devise.friendly_token[0,20]
-        user.name = auth.info.name
-        user.email = auth.info.email
-        user.location = auth.info.location
-        user.gender = auth.extra.raw_info.gender    
+        user.name = data.info.name
+        user.email = data.info.email
+        user.location = data.info.location
+        user.gender = data.extra.raw_info.gender    
         
-        birthday = auth.extra.raw_info.birthday
+        birthday = data.extra.raw_info.birthday
         user.birthday = Date.strptime(birthday, '%m/%d/%Y')
       end
     end
   end
 
-  def self.create_profile(auth)
-    params = auth.slice()
+  def self.create_profile(data)
+    params = data.slice()
   end
   
 end
