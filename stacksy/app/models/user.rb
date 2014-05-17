@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def self.create_profile(auth)
+    params = auth.slice()
+  end
   
 end
 
