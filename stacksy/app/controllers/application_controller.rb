@@ -6,9 +6,9 @@ private
   helper_method :home_page_based_on_role
   def home_page_based_on_role
     if current_user.role == "admin"
-      render "users/index"
+      users_path
     else
-      render "users/show"
+      user_home_path(current_user)
     end
   end
 
@@ -17,7 +17,7 @@ private
 
   protected
   def after_sign_in_path_for(resource)
-    users_path
+    home_page_based_on_role
   end
 
 end
