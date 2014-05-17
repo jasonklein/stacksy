@@ -10,6 +10,7 @@ private
     else
       render "users/show"
     end
+  end
 
 
   before_filter :authenticate_user!
