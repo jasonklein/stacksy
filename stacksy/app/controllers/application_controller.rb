@@ -17,7 +17,7 @@ private
 
   protected
   def after_sign_in_path_for(resource)
-    user_home_path
+    users_path
   end
 
 end
