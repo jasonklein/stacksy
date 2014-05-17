@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   has_many :blocks, foreign_key: "blocker_id", dependent: :destroy
    has_many :blocks, foreign_key: "blocked_id", dependent: :destroy
 
- def self.from_omniauth(auth)
+  def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
       user.provider = auth.provider
       user.uid = auth.uid
