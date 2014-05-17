@@ -1,5 +1,7 @@
 Stacksy::Application.routes.draw do
 
+  devise_for :users
+
 resources :users do
   resources :interests
   resources :blocks
