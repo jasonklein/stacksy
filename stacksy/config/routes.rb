@@ -14,8 +14,9 @@ end
 get '/users/:id/search', to: 'users#search', as: 'user_search'
 get '/users/:id/home', to: 'users#home', as: 'user_home'
 
-
-root to: 'home#index'
+devise_scope :user do
+  root :to => "devise/sessions#new"
+end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,6 +10,15 @@
       = notice
     %p.alert
       = alert
-    .login_logout
-      = link_to "Log Out", destroy_user_session_path, method: :delete
-    = yield
+
+    #left_sidebar
+      #left_sidebar_container
+        = image_tag("/assets/copy_logo.png", width: "100px") 
+        #logo_attribution 
+          Creative Commons – Attribution (CC BY 3.0) 
+          Copy designed by Garrett Knoll from the Noun Project
+
+      - unless current_page?(new_user_session_path)
+        = render "home/menu"
+      
+      = yield

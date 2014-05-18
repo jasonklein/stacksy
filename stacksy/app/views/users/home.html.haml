@@ -1,31 +1,16 @@
-USER HOME PAGE
+User Home Page
 !!! 5
 %head
-  %title Stackly
+  %title Stacksy
 
 %body
   %header
-    %h1#title_header Stackly
+    %h1#title_header Stacksy
 
-  #left_sidebar
-    Left Sidebar
+ 
   #main_content
     News Feed
-  #right_sidebar
-    %nav
-      .profile_sidebar_section
-      %ul
-        %li#menu_item_search 
-          = link_to 'Home', root_path
-        %li#menu_item_messages 
-          = link_to 'Messages', user_messages_path(current_user)
-        %li#menu_item_pings 
-          = link_to 'Pings', user_pings_path(current_user)
-        %li#menu_item_favorites 
-          = link_to 'Favorites', user_favorites_path(current_user)
-        %li#menu_item_blocks 
-          = link_to 'Blocks', user_blocks_path(current_user)
-      
+  
     / .popular tags
 
     / .local tech events

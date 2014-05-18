@@ -9,18 +9,38 @@ header{
   margin-right: auto;
 }
 
+#left_sidebar{
+  float: left;
+  height: 100%;
+  
+}
+
+#left_sidebar_container{
+  position:fixed;
+  height: 100%;
+  border-right: 1px black solid; 
+  width: 180px;
+  top: 0;
+  left: 0;
+}
+
+#logo_attribution{
+   vertical-align : bottom;
+   font-size: 0.5em;
+   font-weight: bold;
+}
+  
+
 #right_sidebar{
   float: right;
-  height: 100%;
-  width: 280px;
-  
+  height: 100%; 
 }
 
 #right_sidebar nav{
   position: fixed;
   height: 100%;
   border-left: 1px black solid;
-  width: 200px;
+  width: 180px;
   top: 0;
   right: 0;
 }
