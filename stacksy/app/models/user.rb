@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile
 
   def self.from_omniauth(data)
+    
     if user = User.find_by_email(data.info.email)
       user.provider = data.provider
       user.uid = data.uid
@@ -45,9 +46,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.create_profile(data)
-    params = data.slice()
-  end
   
 end
 

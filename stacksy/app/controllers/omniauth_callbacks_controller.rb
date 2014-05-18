@@ -1,10 +1,12 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
-    user = User.from_omniauth(request.env["omniauth.auth"])
+    data = request.env["omniauth.auth"]
+    user = User.from_omniauth(data)
     if user.persisted?
-      if !user.profile?
-        user.create_profile(request.env["omniauth.auth"])
+      if !user.profile
+        user_profile = Profile.new(image_1: data.info.image, fb_interests: data.info.interests, user_id: user.id)
+        user_profile.save
       end
 
       flash.notice = "Signed in!"
