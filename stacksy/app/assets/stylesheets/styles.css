@@ -47,4 +47,17 @@ header{
 
 nav ul{
   list-style: none;
+  display: block;
+}
+
+nav ul li{
+  text-align: left;
+}
+
+nav ul li a{
+  text-decoration: none;
+}
+
+nav ul li:hover{
+  background-color: red;
 }
