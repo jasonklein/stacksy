@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def home
     @recipients = User.all
-    @recipients.each {|recipient| recipient.message.build }
+    @recipients.each {|recipient| recipient.messages.build }
     
   end
 

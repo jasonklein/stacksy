@@ -1,15 +1,20 @@
 #news_feed
-  -@recipients.each do |user|
-    = user.image_1
-    = user.name
-    = user.gender.title
-    = user.location
-    / = user.age
+  -@recipients.each do |recipient|
+    = image_tag recipient.profile.image_1
+    = recipient.name
+    = recipient.gender.title
+    = recipient.location
+    / = recipient.age
     #message
       #message-button Message
       #message-box
-        = form_for 
-        / %textarea{rows: '4', cols: '40'}
+        = form_for recipient do |f|
+          = f.fields_for :message do |i|
+            %br
+            = i.text_area :message, cols: '50', rows: '5'
+          = hidden_field_tag :sender_id, current_user.id
+          %br
+          = button_tag "Send",  class: 'btn btn-success'
 
     %br
 
