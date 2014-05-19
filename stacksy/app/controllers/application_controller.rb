@@ -22,7 +22,7 @@ private
 
   protected
   def after_sign_up_path_for(resource)
-    '/users/:id/preferences'
+    '/users/:user_id/interests'
   end
 
 end

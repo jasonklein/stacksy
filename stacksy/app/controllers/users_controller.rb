@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     
   end
 
-  def preferences
+  def interests
 
     @user = current_user
 

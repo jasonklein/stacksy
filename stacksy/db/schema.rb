@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140517202130) do
+ActiveRecord::Schema.define(:version => 20140519133105) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(:version => 20140517202130) do
     t.integer  "favorited_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "genders", :force => true do |t|
+    t.string   "type",       :default => "custom", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "interests", :force => true do |t|
