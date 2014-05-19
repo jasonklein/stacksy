@@ -1,5 +1,5 @@
 class Gender < ActiveRecord::Base
-  attr_accessible :type
+  attr_accessible :title
 
   has_many :users
   has_many :interests
