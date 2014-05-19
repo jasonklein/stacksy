@@ -3,40 +3,47 @@
   %head
     %title Stacksy
     = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Pacifico"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .container
-      %p.notice
-        = notice
-      %p.alert
-        = alert
+    .container-fluid
+      .row
+        .col-md-2
+          -if current_user            
+            = raw(stacksy_logo(large_dimensions)) 
+            %p.special
+              Pancake designed by Jacob Halton from
+              %a{href: "http://www.thenounproject.com", target: "_blank"}
+                the Noun Project
+              collection.
+        .col-md-8
+          %header
+            %h1 Stacksy
+          %p.notice
+            = notice
+          %p.alert
+            = alert
+          = yield
+        .col-md-2
+          -if current_user
+            %ul.nav.nav-pills.nav-stacked
+              %li
+                %h3
+                  = current_user.name
+              %li.login_logout
+                = link_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-butter'
+              %li#menu_item_search
+                = link_to 'Home', home_page_based_on_role, class: '.btn btn-butter'
+              %li#menu_item_messages
+                = link_to 'Messages', user_messages_path(current_user), class: '.btn btn-butter'
+              %li#menu_item_pings
+                = link_to 'Pings', user_pings_path(current_user), class: '.btn btn-butter'
+              %li#menu_item_favorites
+                = link_to 'Favorites', user_favorites_path(current_user), class: '.btn btn-butter'
+              %li#menu_item_blocks
+                = link_to 'Blocks', user_blocks_path(current_user), class: '.btn btn-butter'
 
-      -if current_user
-        #left_sidebar
-          #left_sidebar_container
-            = image_tag("/assets/copy_logo.png", width: "100px") 
-            #logo_attribution 
-              Creative Commons – Attribution (CC BY 3.0) 
-              Copy designed by Garrett Knoll from the Noun Project
 
-        #right_sidebar
-          %nav
-            .profile_sidebar_section
-              =current_user.name
-            .login_logout
-              = link_to "Log Out", destroy_user_session_path, method: :delete
-            %ul
-              %li#menu_item_search 
-                = link_to 'Home', home_page_based_on_role
-              %li#menu_item_messages 
-                = link_to 'Messages', user_messages_path(current_user)
-              %li#menu_item_pings 
-                = link_to 'Pings', user_pings_path(current_user)
-              %li#menu_item_favorites 
-                = link_to 'Favorites', user_favorites_path(current_user)
-              %li#menu_item_blocks 
-                = link_to 'Blocks', user_blocks_path(current_user)
-
-
-      = yield
+        

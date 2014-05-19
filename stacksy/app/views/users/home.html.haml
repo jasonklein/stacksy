@@ -1,25 +1,15 @@
-User Home Page
-!!! 5
-%head
-  %title Stacksy
+#main_content
+  #news_feed
+    -@users.each do |user|
+      / #user_image
+      = user.name
+      = user.gender.title
+      = user.location
+      / = user.age
+      %br
 
-%body
-  %header
-    %h1#title_header Stacksy
 
- 
-  #main_content
-    #news_feed
-      -@users.each do |user|
-        / #user_image
-        = user.name
-        = user.gender.title
-        = user.location
-        / = user.age
-        %br
 
-  
+  / .popular tags
 
-    / .popular tags
-
-    / .local tech events
+  / .local tech events
