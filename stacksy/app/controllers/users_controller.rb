@@ -13,6 +13,12 @@ class UsersController < ApplicationController
     
   end
 
+  def interests
+
+    @user = current_user
+
+  end
+
 
 
 

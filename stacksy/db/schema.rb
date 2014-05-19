@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140517202130) do
+ActiveRecord::Schema.define(:version => 20140519135405) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -27,11 +27,17 @@ ActiveRecord::Schema.define(:version => 20140517202130) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "genders", :force => true do |t|
+    t.string   "type",       :default => "custom", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
   create_table "interests", :force => true do |t|
     t.integer  "user_id"
-    t.string   "option"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "gender_id",  :limit => 255
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "messages", :force => true do |t|
@@ -75,21 +81,21 @@ ActiveRecord::Schema.define(:version => 20140517202130) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name",                                         :null => false
-    t.string   "gender",                                       :null => false
-    t.string   "relationship_status",    :default => "single", :null => false
-    t.date     "birthday",                                     :null => false
-    t.string   "location",                                     :null => false
-    t.string   "role",                   :default => "basic",  :null => false
-    t.string   "other",                  :default => "",       :null => false
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-    t.string   "email",                  :default => "",       :null => false
-    t.string   "encrypted_password",     :default => "",       :null => false
+    t.string   "name",                                                        :null => false
+    t.integer  "gender_id",              :limit => 255,                       :null => false
+    t.string   "relationship_status",                   :default => "single", :null => false
+    t.date     "birthday",                                                    :null => false
+    t.string   "location",                                                    :null => false
+    t.string   "role",                                  :default => "basic",  :null => false
+    t.string   "other",                                 :default => "",       :null => false
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
+    t.string   "email",                                 :default => "",       :null => false
+    t.string   "encrypted_password",                    :default => "",       :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,        :null => false
+    t.integer  "sign_in_count",                         :default => 0,        :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
