@@ -20,4 +20,9 @@ private
     home_page_based_on_role
   end
 
+  protected
+  def after_sign_up_path_for(resource)
+    '/users/:id/preferences'
+  end
+
 end
