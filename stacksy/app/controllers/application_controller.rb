@@ -7,16 +7,12 @@ private
   def home_page_based_on_role
     if current_user.role == "admin"
       users_path
-
     elsif current_user.role == "new"
       current_user.update_attributes(role: "basic")
-      user_path(current_user)
-
+      user_interest_sign_up_path(current_user)
     else
       user_home_path(current_user)
-
     end
-
   end
 
   before_filter :authenticate_user!

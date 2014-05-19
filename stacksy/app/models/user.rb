@@ -6,11 +6,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes
+  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :gender_interest_ids  
 
   has_one :profile, dependent: :destroy
   belongs_to :gender
-  has_many :interests, dependent: :destroy
+  has_many :interests
+  has_many :gender_interests, through: :interests, source: :gender
 
   has_many :messages, foreign_key: "sender_id"
   has_many :messages, foreign_key: "recipient_id"
