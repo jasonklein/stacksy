@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140519133830) do
+ActiveRecord::Schema.define(:version => 20140519135405) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(:version => 20140519133830) do
 
   create_table "interests", :force => true do |t|
     t.integer  "user_id"
-    t.string   "option"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "gender_id",  :limit => 255
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "messages", :force => true do |t|

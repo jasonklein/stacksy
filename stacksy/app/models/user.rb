@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :age, :gender, :location, :name, :other, :relationship_status, :role, :user_id, :profile_attributes
+  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :user_id, :profile_attributes
 
   has_one :profile, dependent: :destroy
+  belongs_to :gender
   has_many :interests, dependent: :destroy
 
   has_many :messages, foreign_key: "sender_id"
@@ -43,11 +44,11 @@ class User < ActiveRecord::Base
 
         case gender
         when 'male'
-          user.gender = 1
+          user.gender_id = 1
         when 'female'
-          user.gender = 2
+          user.gender_id = 2
         else
-          user.gender = 5
+          user.gender_id = 5
         end     
         
         birthday = data.extra.raw_info.birthday
