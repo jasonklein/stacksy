@@ -13,9 +13,10 @@ User Home Page
       -@users.each do |user|
         / #user_image
         = user.name
-        = user.gender
+        = user.gender.title
         = user.location
         / = user.age
+        %br
 
   
 

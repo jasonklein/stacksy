@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140519135405) do
+ActiveRecord::Schema.define(:version => 20140519143127) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20140519135405) do
   end
 
   create_table "genders", :force => true do |t|
-    t.string   "type",       :default => "custom", :null => false
+    t.string   "title",      :default => "custom", :null => false
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
   end
