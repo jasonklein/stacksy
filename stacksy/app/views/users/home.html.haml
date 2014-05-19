@@ -1,10 +1,15 @@
 #news_feed
-  -@users.each do |user|
-    / #user_image
+  -@recipients.each do |user|
+    = user.image_1
     = user.name
     = user.gender.title
     = user.location
     / = user.age
+    #message
+      #message-button Message
+      #message-box
+        = form_for 
+        / %textarea{rows: '4', cols: '40'}
 
     %br
 
