@@ -1,15 +1,15 @@
-#main_content
-  #news_feed
-    -@users.each do |user|
-      / #user_image
-      = user.name
-      = user.gender.title
-      = user.location
-      / = user.age
-      %br
+#news_feed
+  -@users.each do |user|
+    / #user_image
+    = user.name
+    = user.gender.title
+    = user.location
+    / = user.age
+
+    %br
 
 
 
-  / .popular tags
+/ .popular tags
 
-  / .local tech events
+/ .local tech events
