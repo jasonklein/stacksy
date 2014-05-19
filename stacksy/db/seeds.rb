@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+genders = Gender.create([
+  { type: 'male' },
+  { type: 'female' },
+  { type: 'mtf' },
+  { type: 'ftm' },
+  { type: 'custom' },
+  ])
