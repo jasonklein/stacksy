@@ -2,7 +2,7 @@
   #news_feed
 
     -@users.each do |user|
-      / #user_image
+      =image_tag(user.profile.image_1)
       = user.name
       = user.age
       = user.gender.title

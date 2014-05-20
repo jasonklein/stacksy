@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-      
+    @q = User.ransack(params[:q])
+    @users = @q.result  
   end
 
   def search
-    @search = User.search(params[:q])
-    @users = @search.result
-    @search.build_condition if @search.conditions.empty?
-    @search.build_sort if @search.sorts.empty?
+    @q = User.ransack(params[:q])
+    @users = @q.result
   end
 
   def home

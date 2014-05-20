@@ -1,16 +1,18 @@
 %h2 Search
 
-= search_form_for @search, url: search_users_path, method: :post do |f|
-  = f.condition_fields do |c|
-    =render "condition_fields", f: c
-  %p= link_to_add_fields "Add Conditions", f, :condition
-  .field
-    Sort:
-    = f.sort_fields do |s|
-      =s.sort_select
-    end
+= search_form_for @q, url: user_search_path do |f|
+  = f.label "Gender"
+  = f.select :gender_title_eq, options_from_collection_for_select(Gender.all, "title", "title"), include_blank: true
   = f.submit "Search"
 
 
--@users.each do |user|
-  =user.name
+%body
+  %header
+    -@users.each do |user|
+      .user_search
+        =image_tag(user.profile.image_1)
+        =user.name
+
+
+
+  
