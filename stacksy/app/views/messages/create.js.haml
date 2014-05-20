@@ -1,6 +1,7 @@
-/ - if @message.persisted?
-/   alert("Message sent!")
-/ - else
-/   alert("Message not sent!")
+- if @message.persisted?
+  var alertHtml = "Message sent to #{escape_javascript(@message.recipient.name)}. Sweet!"
+- else
+  var alertHtml = "Message not sent. Not sweet. Please try again--love waits for no person!"
 
-alert("Submitted!")
+$('#js-alert').html(alertHtml);
+$('.sent-message').slideUp();

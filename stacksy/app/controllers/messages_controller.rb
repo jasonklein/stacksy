@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.js 
-        format.html { redirect_to user_home_path(current_user), notice: 'Sent to #{message.recipient.name}. Sweet!' }
+        format.html { redirect_to user_home_path(current_user), notice: 'Sent to #{@message.recipient.name}. Sweet!' }
         format.json { render json: @message, status: :created, location: @message }
       else
         format.js 
