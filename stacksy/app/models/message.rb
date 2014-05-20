@@ -12,6 +12,10 @@ class Message < ActiveRecord::Base
     self.created_at.strftime('%d %b %y')
   end
 
+  def new_since_last_login?(user)
+    self.date > user.last_sign_in_date
+  end
+
   
 
 
