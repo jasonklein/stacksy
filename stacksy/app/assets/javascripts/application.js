@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $('.send-button').click(function() {
+    // $(this).parent.submit();
+    console.log('Submitted!');
+  });
+});

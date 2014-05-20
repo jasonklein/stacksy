@@ -27,8 +27,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile
   accepts_nested_attributes_for :messages
 
-  def self.from_omniauth(data)
-    
+  def self.from_omniauth(data)     
     if user = User.find_by_email(data.info.email)
       user.provider = data.provider
       user.uid = data.uid
