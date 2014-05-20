@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
     now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 
-
+  
 
   # searchable do
   #   integer :gender_id

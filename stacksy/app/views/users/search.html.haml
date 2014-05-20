@@ -3,6 +3,12 @@
 = search_form_for @q, url: user_search_path do |f|
   = f.label "Gender"
   = f.select :gender_title_eq, options_from_collection_for_select(Gender.all, "title", "title"), include_blank: true
+  %br
+  = f.label "Minimum Age"
+  = f.number_field :birthday_lteq
+  %br
+  = f.label "Maximum Age"
+  = f.number_field :birthday_gteq 
   = f.submit "Search"
 
 

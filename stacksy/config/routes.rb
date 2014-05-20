@@ -3,7 +3,7 @@ Stacksy::Application.routes.draw do
 devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
 resources :users do
-  collection {post :search, to: 'users#search'}
+  # collection {post :search, to: 'users#search'}
 end
 
 resources :users do
