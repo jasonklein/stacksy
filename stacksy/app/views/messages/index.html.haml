@@ -6,16 +6,33 @@
       %tr
         %th.col-md-2 From
         %th.col-md-2 To
-        %th.col-md-5 Message
-        %th.col-md-1 Action
+        %th.col-md-2 Date
+        %th.col-md-4 Message
+        %th.col-md-2 Action
     %tbody
       - @messages.each do |message|
-        %tr
-          %td 
-            = link_to message.sender.name, profile_path(message.sender)
-          %td 
-            = link_to message.recipient.name, profile_path(message.recipient)
-          %td 
-            = message.content
-          %td
-            reply
+        - if message.recipient.id == current_user.id
+          %tr.info
+            %td.info
+              = link_to message.sender.name, profile_path(message.sender)
+            %td.info
+              = link_to message.recipient.name, profile_path(message.recipient)
+            %td.info
+              = message.date
+            %td.info
+              = message.content
+            %td.info
+              reply
+        - else
+          %tr
+            %td
+              = link_to message.sender.name, profile_path(message.sender)
+            %td
+              = link_to message.recipient.name, profile_path(message.recipient)
+            %td
+              = message.date
+            %td
+              = message.content
+            %td
+              reply
+        
