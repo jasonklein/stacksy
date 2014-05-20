@@ -6,15 +6,15 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :gender_interest_ids, :messages_attributes  
+  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :gender_interest_ids, :sent_messages_attributes, :received_messages_attributes  
 
   has_one :profile, dependent: :destroy
   belongs_to :gender
   has_many :interests
   has_many :gender_interests, through: :interests, source: :gender
 
-  has_many :messages, foreign_key: "sender_id"
-  has_many :messages, foreign_key: "recipient_id"
+  has_many :sent_messages, class_name: 'Message', foreign_key: "recipient_id"
+  has_many :received_messages, class_name: 'Message', foreign_key: "sender_id"
 
   has_many :pings, foreign_key: "pinger_id"
   has_many :pings, foreign_key: "pinged_id"
@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   has_many :blocks, foreign_key: "blocked_id", dependent: :destroy
 
   accepts_nested_attributes_for :profile
-  accepts_nested_attributes_for :messages
+  accepts_nested_attributes_for :sent_messages
+  accepts_nested_attributes_for :received_messages
 
   def self.from_omniauth(data)     
     if user = User.find_by_email(data.info.email)
@@ -68,6 +69,13 @@ class User < ActiveRecord::Base
   def age
     now = Time.now.utc.to_date
     now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+
+  def messages
+    sent_ids = Message.where(sender_id: self.id, sender_readability: true)
+    received_ids = Message.where(recipient_id: self.id, recipient_readability: true)
+    ids = sent_ids + received_ids
+    Message.where(id: ids)
   end
 
   
