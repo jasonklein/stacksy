@@ -6,13 +6,16 @@
       %tr
         %th.col-md-2 From
         %th.col-md-2 To
-        %th.col-md-6 Message
+        %th.col-md-5 Message
+        %th.col-md-1 Action
     %tbody
       - @messages.each do |message|
         %tr
           %td 
-            = message.sender.name
+            = link_to message.sender.name, user
           %td 
             = message.recipient.name
           %td 
             = message.content
+          %td
+            = reply
