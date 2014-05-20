@@ -25,7 +25,8 @@
             %p.alert
               = alert
             %h1 Stacksy
-          = yield
+            #js-alert
+            = yield
         .col-md-2
           -if current_user
             %ul.nav.nav-pills.nav-stacked
@@ -46,6 +47,3 @@
                 = link_to 'Favorites', user_favorites_path(current_user), class: '.btn btn-butter'
               %li#menu_item_blocks
                 = link_to 'Blocks', user_blocks_path(current_user), class: '.btn btn-butter'
-
-
-        

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :gender_interest_ids  
+  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :gender_interest_ids, :messages_attributes  
 
   has_one :profile, dependent: :destroy
   belongs_to :gender
@@ -25,9 +25,9 @@ class User < ActiveRecord::Base
   has_many :blocks, foreign_key: "blocked_id", dependent: :destroy
 
   accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :messages
 
-  def self.from_omniauth(data)
-    
+  def self.from_omniauth(data)     
     if user = User.find_by_email(data.info.email)
       user.provider = data.provider
       user.uid = data.uid

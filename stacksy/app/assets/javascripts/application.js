@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $('.message').children('.message-box').hide();
+  $('.message-button').click(function(){
+    $(this).siblings().slideToggle();
+  });
+  $('.send-button').click(function() {
+    $(this).parent().addClass('sent-message');
+  });
+});

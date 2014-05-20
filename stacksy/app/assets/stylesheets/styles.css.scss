@@ -29,11 +29,20 @@ header{
   margin-bottom: 50px;
 }
 
+#js-alert {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+#js-alert.hightlight {
+  background-color: red;
+  font-family: 'Pacifico', cursive; 
+}
+
+
 h1 {
   font-size: 100px;
   font-family: 'Pacifico', cursive;
-  /*font-family: 'Lobster', cursive;*/
-  /*font-family: 'Lobster Two', cursive;*/
   color: #FF6000;
 }
 
@@ -58,6 +67,7 @@ svg {
 .special {
   font-family: 'Libre Baskerville', serif;
 }
+
 
 
 

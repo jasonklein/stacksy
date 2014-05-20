@@ -1,17 +1,25 @@
-#main_content
-  #news_feed
+#news_feed
+  -@users.each do |user|
+    = image_tag user.profile.image_1
+    = user.name
+    = user.gender.title
+    = user.location
+    / = user.age
+    .message
+      .message-button.btn.btn-success Message
+      .message-box
+        = form_tag create_message_path(recipient_id: user.id), id: 'message-content-' + user.id.to_s, remote: true do
+          = fields_for :message do |i|
+            %br
+            = i.text_area :content, cols: '50', rows: '5'
+          %br
+          = submit_tag "Send", class: 'send-button btn btn-success'
 
-    -@users.each do |user|
-      =image_tag(user.profile.image_1)
-      = user.name
-      = user.age
-      = user.gender.title
-      = user.location
-      
-      %br
+
+    %br
 
 
 
-  / .popular tags
+/ .popular tags
 
-  / .local tech events
+/ .local tech events
