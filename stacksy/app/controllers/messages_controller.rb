@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
-    @messages = Message.all
+    @messages = current_user.messages
   end
 
   def new
