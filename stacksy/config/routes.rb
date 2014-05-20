@@ -13,7 +13,7 @@ end
 
 get '/users/:id/search', to: 'users#search', as: 'user_search'
 get '/users/:id/home', to: 'users#home', as: 'user_home'
-post '/users/:user_id/messages', to: 'messages#create', as: 'create_message'
+post '/users/messages/:recipient_id', to: 'messages#create', as: 'create_message'
 
 devise_scope :user do
   root :to => "devise/sessions#new"

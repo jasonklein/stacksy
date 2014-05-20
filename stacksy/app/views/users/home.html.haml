@@ -1,20 +1,19 @@
 #news_feed
-  -@recipients.each do |recipient|
-    = image_tag recipient.profile.image_1
-    = recipient.name
-    = recipient.gender.title
-    = recipient.location
-    / = recipient.age
+  -@users.each do |user|
+    = image_tag user.profile.image_1
+    = user.name
+    = user.gender.title
+    = user.location
+    / = user.age
     #message
       #message-button Message
       #message-box
-        = form_for recipient do |f|
-          = f.fields_for :message do |i|
+        = form_tag create_message_path(recipient_id: user.id) do
+          = fields_for :message do |i|
             %br
-            = i.text_area :message, cols: '50', rows: '5'
-          = hidden_field_tag :sender_id, current_user.id
+            = i.text_area :content, cols: '50', rows: '5'
           %br
-          = button_tag "Send", create_message_path, class: 'btn btn-success'
+          = submit_tag "Send", class: 'btn btn-success'
 
     %br
 

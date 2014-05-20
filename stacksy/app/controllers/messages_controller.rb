@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    
+    binding.pry
 
   end
 
