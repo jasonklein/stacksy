@@ -1,1 +1,13 @@
-Search
+%h1 Search
+
+= search_form_for @q, url: user_search_path, html: {method: :post} do |f|
+  = f.condition_fields do |c|
+    =render "condition_fields", f: c
+  %p= link_to_add_fields "Add Conditions", f, :condition
+  .field
+    Sort:
+    = f.sort_fields do |s|
+      =s.sort_select
+    end
+  .actions = f.submit "Search"
+end

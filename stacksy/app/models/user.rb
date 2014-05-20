@@ -60,8 +60,27 @@ class User < ActiveRecord::Base
         user.birthday = Date.strptime(birthday, '%m/%d/%Y')
         user.role = "new"
       end
+
     end
   end
+
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+
+
+
+  # searchable do
+  #   integer :gender_id
+  #   string :relationship_status
+  #   string :location
+  #   #birthday
+
+
+
+  # end
 
   
 end

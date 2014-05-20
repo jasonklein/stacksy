@@ -1,9 +1,14 @@
 Stacksy::Application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
 resources :users do
-  resources :interests
+  collection do
+    match 'search' => 'users#search', via: [:get, :post], as: :search
+  end
+end
+
+resources :users do
   resources :blocks
   resources :favorites
   resources :messages
@@ -13,6 +18,7 @@ end
 
 get '/users/:id/search', to: 'users#search', as: 'user_search'
 get '/users/:id/home', to: 'users#home', as: 'user_home'
+get '/users/:id/interests', to: 'users#interests', as: 'user_interest_sign_up'
 
 devise_scope :user do
   root :to => "devise/sessions#new"

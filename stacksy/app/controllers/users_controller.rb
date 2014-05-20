@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def search
-
+    @q = User.search(params[:q])
+    @users = @q.result.(distinct: true)
   end
 
   def home

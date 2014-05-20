@@ -1,11 +1,13 @@
 #main_content
   #news_feed
+
     -@users.each do |user|
       / #user_image
       = user.name
+      = user.age
       = user.gender.title
       = user.location
-      / = user.age
+      
       %br
 
 

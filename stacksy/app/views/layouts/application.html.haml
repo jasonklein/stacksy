@@ -20,11 +20,11 @@
               collection.
         .col-md-8
           %header
+            %p.notice
+              = notice
+            %p.alert
+              = alert
             %h1 Stacksy
-          %p.notice
-            = notice
-          %p.alert
-            = alert
           = yield
         .col-md-2
           -if current_user
@@ -34,8 +34,10 @@
                   = current_user.name
               %li.login_logout
                 = link_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-butter'
-              %li#menu_item_search
+              %li#menu_item_home
                 = link_to 'Home', home_page_based_on_role, class: '.btn btn-butter'
+              %li#menu_item_search
+                = link_to 'Search', user_search_path(current_user), class: '.btn btn-butter'
               %li#menu_item_messages
                 = link_to 'Messages', user_messages_path(current_user), class: '.btn btn-butter'
               %li#menu_item_pings
