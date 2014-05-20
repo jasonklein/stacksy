@@ -12,10 +12,10 @@
       - @messages.each do |message|
         %tr
           %td 
-            = link_to message.sender.name, user
+            = link_to message.sender.name, profile_path(message.sender)
           %td 
-            = message.recipient.name
+            = link_to message.recipient.name, profile_path(message.recipient)
           %td 
             = message.content
           %td
-            = reply
+            reply
