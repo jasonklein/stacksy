@@ -14,9 +14,9 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(function() {
-  $('.send-button').click(function() {
-    // $(this).parent.submit();
-    console.log('Submitted!');
-  });
-});
+// $(function() {
+//   $('.send-button').click(function() {
+//     $(this).parent().submit().addClass('sent-message')
+//     console.log('Submitted');
+//   });
+// });
