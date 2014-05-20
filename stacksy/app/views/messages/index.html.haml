@@ -1,7 +1,14 @@
-Messages Index
+%h2 Messages
 
-
-
-- @messages.each do |message|
-  #indexed_message
-    message.sender.name
+.table-responsive
+  %table.table.table-hover
+    %thead
+      %tr
+        %th.col-md-2 From
+        %th.col-md-2 To
+        %th.col-md-2 Date
+        %th.col-md-4 Message
+        %th.col-md-2 Action
+    %tbody
+      = render 'table_body'
+        

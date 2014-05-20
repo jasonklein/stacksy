@@ -17,11 +17,11 @@ html, body {
   height: 100%;
 }
 
-.col-md-2, .col-md-8 {
+body > .container-fluid > .row > .col-md-2, body > .container-fluid > .row > .col-md-8 {
   padding-top: 30px;
 }
 
-.col-md-2 {
+body > .container-fluid > .row > .col-md-2 {
   background-color: #C2DDFF;
 }
 
@@ -75,6 +75,9 @@ a:hover#facebook_log_in_button{
 h1 {
   font-size: 100px;
   font-family: 'Pacifico', cursive;
+}
+
+h1, h2 {
   color: #FF6000;
 }
 
@@ -100,6 +103,16 @@ svg {
 .special {
   font-family: 'Libre Baskerville', serif;
 }
+
+table {
+  text-align: left;
+}
+
+.col-md-8.col-md-2 {
+  background-color: red;
+}
+
+
 
 
 

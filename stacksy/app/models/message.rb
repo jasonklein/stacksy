@@ -6,5 +6,17 @@ class Message < ActiveRecord::Base
 
   validates :content, presence: true
 
+  default_scope order('created_at DESC')
+
+  def date
+    self.created_at.strftime('%d %b %y')
+  end
+
+  def new_since_last_login?(user)
+    self.created_at > user.last_sign_in_at
+  end
+
+  
+
 
 end
