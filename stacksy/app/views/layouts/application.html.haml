@@ -19,14 +19,12 @@
         }(document, 'script', 'facebook-jssdk'));
     .container-fluid
       .row
-        .col-md-2
-          -if current_user            
+        -if current_user  
+          .col-md-2        
             = raw(stacksy_logo(large_dimensions)) 
             %p.special
               Pancake designed by Jacob Halton from
-              %a{href: "http://www.thenounproject.com", target: "_blank"}
-                the Noun Project
-              collection.
+              %a{href: "http://www.thenounproject.com", target: "_blank"} the Noun Projectcollection.
         .col-md-8
           %header
             %p.notice
@@ -36,12 +34,13 @@
             %h1 Stacksy
             #js-alert
             = yield
-        .col-md-2
-          -if current_user
+
+        -if current_user
+          .col-md-2
             %ul.nav.nav-pills.nav-stacked
               %li
                 %h3
-                  = image_tag current_user.profile.image_1
+                  = link_to image_tag(current_user.profile.image_1, :class => "circular"), current_user
                   %br
                   = link_to current_user.name, current_user
               %li.login_logout

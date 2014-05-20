@@ -56,7 +56,14 @@ a:hover#facebook_log_in_button{
   font-size: 25px;
 }
 
+.circular{
+  width: 180px;
+  height: 180px;
+  border-radius: 90px;
+  -webkit-border-radius: 90px;
+  -moz-border-radius: 90px;
 
+}
 
 h1 {
   font-size: 100px;
@@ -70,7 +77,8 @@ h3 {
 
 .col-md-8 {
   text-align: center;
-  background-color: #DFF8EE;
+  //background-color: #DFF8EE;
+  background-color: white;
 }
 
 .col-md-2 p {
