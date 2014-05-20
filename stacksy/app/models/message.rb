@@ -13,7 +13,7 @@ class Message < ActiveRecord::Base
   end
 
   def new_since_last_login?(user)
-    self.date > user.last_sign_in_date
+    self.created_at > user.last_sign_in_at
   end
 
   

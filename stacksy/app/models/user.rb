@@ -78,9 +78,7 @@ class User < ActiveRecord::Base
     Message.where(id: ids)
   end
 
-  def last_sign_in_date
-    self.last_sign_in_at.strftime('%d %b %y')
-  end
+  
 
   
 

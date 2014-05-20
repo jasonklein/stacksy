@@ -1,5 +1,5 @@
 - @messages.each do |message|
-  - if message.recipient.id == current_user.id
+  - if message.recipient == current_user
     - if message.new_since_last_login?(current_user)
       %tr.warning
         %td.warning
