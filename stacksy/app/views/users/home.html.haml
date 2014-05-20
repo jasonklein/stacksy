@@ -14,7 +14,7 @@
             = i.text_area :message, cols: '50', rows: '5'
           = hidden_field_tag :sender_id, current_user.id
           %br
-          = button_tag "Send",  class: 'btn btn-success'
+          = button_tag "Send", create_message_path, class: 'btn btn-success'
 
     %br
 
