@@ -5,8 +5,10 @@ class UsersController < ApplicationController
   end
 
   def search
-    @q = User.search(params[:q])
-    @users = @q.result.(distinct: true)
+    @search = User.search(params[:q])
+    @users = @search.result
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
   end
 
   def home

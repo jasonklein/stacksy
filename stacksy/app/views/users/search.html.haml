@@ -1,6 +1,6 @@
-%h1 Search
+%h2 Search
 
-= search_form_for @q, url: user_search_path, html: {method: :post} do |f|
+= search_form_for @search, url: search_users_path, method: :post do |f|
   = f.condition_fields do |c|
     =render "condition_fields", f: c
   %p= link_to_add_fields "Add Conditions", f, :condition
@@ -9,5 +9,8 @@
     = f.sort_fields do |s|
       =s.sort_select
     end
-  .actions = f.submit "Search"
-end
+  = f.submit "Search"
+
+
+-@users.each do |user|
+  =user.name
