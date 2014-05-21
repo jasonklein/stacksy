@@ -16,7 +16,9 @@ class Message < ActiveRecord::Base
     self.created_at > user.last_sign_in_at
   end
 
-  
-
-
+  def classname_for_user(user)
+    if self.recipient == user
+      self.new_since_last_login?(user) ? 'warning' : 'info'
+    end
+  end
 end

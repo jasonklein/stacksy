@@ -1,54 +1,13 @@
 - @messages.each do |message|
-  - if message.recipient == current_user
-    - if message.new_since_last_login?(current_user)
-      %tr.warning
-        %td.warning
-          = link_to message.sender.name, profile_path(message.sender)
-        %td.warning
-          = link_to message.recipient.name, profile_path(message.recipient)
-        %td.warning
-          = message.date
-        %td.warning
-          = message.content
-        %td.warning
-          reply
-    - else
-      %tr.info
-        %td.info
-          = link_to message.sender.name, profile_path(message.sender)
-        %td.info
-          = link_to message.recipient.name, profile_path(message.recipient)
-        %td.info
-          = message.date
-        %td.info
-          = message.content
-        %td.info
-          reply
-  - else
-    %tr
-      %td
-        = link_to message.sender.name, profile_path(message.sender)
-      %td
-        = link_to message.recipient.name, profile_path(message.recipient)
-      %td
-        = message.date
-      %td
-        = message.content
-      %td
-        reply
-
-
-
-
-  / - else
-  /   %tr
-  /     %td
-  /       = link_to message.sender.name, profile_path(message.sender)
-  /     %td
-  /       = link_to message.recipient.name, profile_path(message.recipient)
-  /     %td
-  /       = message.date
-  /     %td
-  /       = message.content
-  /     %td
-  /       reply
+  - classname = message.classname_for_user(current_user)
+  %tr{class: classname}
+    %td{class: classname}
+      = link_to message.sender.name, profile_path(message.sender)
+    %td{class: classname}
+      = link_to message.recipient.name, profile_path(message.recipient)
+    %td{class: classname}
+      = message.date
+    %td{class: classname}
+      = message.content
+    %td{class: classname}
+      reply
