@@ -1,9 +1,9 @@
 - classname = message.classname_for_user(current_user)
 %tr{class: classname}
   %td{class: classname}
-    = link_to message.sender_name, profile_path(message.sender)
+    = link_to message.sender.name, profile_path(message.sender)
   %td{class: classname}
-    = link_to message.recipient_name, profile_path(message.recipient)
+    = link_to message.recipient.name, profile_path(message.recipient)
   %td{class: classname}
     = message.date
   %td{class: classname}
