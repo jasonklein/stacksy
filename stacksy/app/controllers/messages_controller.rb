@@ -19,9 +19,7 @@ class MessagesController < ApplicationController
 
     @message = Message.new(params[:message])
     @message.recipient_id = params[:recipient_id]
-    @message.recipient_name = @message.recipient.name
     @message.sender_id = current_user.id
-    @message.sender_name = current_user.name
 
 
     @messages = current_user.messages
