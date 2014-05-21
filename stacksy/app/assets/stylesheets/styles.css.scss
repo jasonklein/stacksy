@@ -20,6 +20,10 @@ html, body {
   text-align: left;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .btn {
   text-align: left;
 }
@@ -31,7 +35,6 @@ html, body {
 
 .container-fluid, .row, .col-md-2, .col-md-8 {
   height: 100%;
-  //width: 100%;
 }
 
 body > .container-fluid > .row > .col-md-2, body > .container-fluid > .row > .col-md-8 {
