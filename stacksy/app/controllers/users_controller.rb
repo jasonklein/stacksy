@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @q = User.ransack(params[:q])
-    @users = @q.result  
+     
+  end
+
+  def home
+    @users = User.without_user(current_user)   
   end
 
   def search
@@ -16,13 +19,9 @@ class UsersController < ApplicationController
     end
 
     @q = User.ransack(params[:q])
-    @users = @q.result
-
-  end
-
-  def home
-    @users = User.all
+    @users = @q.result.without_user(current_user)
     
+
   end
 
   def interests
@@ -44,8 +43,20 @@ class UsersController < ApplicationController
   end
 
 def show
+  @user = User.find(params[:id])
+end
+
+def membership
   @user = current_user
 end
+
+
+
+
+
+
+
+
 
 def age
     now = Time.now.utc.to_date
@@ -64,9 +75,17 @@ def reverse_age(min_age, max_age)
   #Maximum/Latest birthday: Youngest Age
   max_now = Time.now.utc.to_date
   params[:q][:birthday_lteq] = max_now.change(:year => max_now.year - min_age)
-
 end
 
+private
+  helper_method :membership_status
+  def membership_status
+    if current_user.role == "basic"
+      "Basic"
+    elsif current_user.role == "paid"
+      "Premium"
+    end
+  end
 
 
 

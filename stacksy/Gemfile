@@ -13,6 +13,7 @@ gem 'omniauth-facebook'
 gem 'haml-rails'
 gem 'sunspot_rails'
 gem 'ransack'
+gem 'cancan'
 
 
 # Gems used only for assets and not required

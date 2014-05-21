@@ -43,11 +43,14 @@
             %ul.nav.nav-pills.nav-stacked
               %li
                 %h3
-                  = link_to image_tag(current_user.profile.image_1, :class => "circular_large"), current_user
+                  = link_to image_tag(current_user.profile.image_1), profile_path(current_user)
                   %br
-                  = link_to current_user.name, current_user
-              %li.login_logout
-                = link_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-butter'
+                  = link_to current_user.name, profile_path(current_user)
+                  %br
+                  = link_to "Membership", user_membership_path(current_user)
+                  %br
+                  = link_to "Log Out", destroy_user_session_path, method: :delete
+
               %li#menu_item_home
                 = link_to 'Home', home_page_based_on_role, class: '.btn btn-butter'
               %li#menu_item_search
