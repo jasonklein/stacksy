@@ -14,4 +14,4 @@
       = render partial: 'reply', locals: {recipient: message.recipient}
   %td{class: classname}
     .reply-button.btn.btn-success Reply       
-    .btn.btn-info Delete
+    = link_to "Delete", delete_message_path(current_user, message), method: :delete, class: "btn btn-info"
