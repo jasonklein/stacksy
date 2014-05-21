@@ -1,5 +1,6 @@
 %h2 Tracked
 %h3 Who's lookin' at you, kid?
 - @received_tracks.each do |received_track|
-        =image_tag(received_track.user.profile.image_1)
-        =user.name
+  - tracker = received_track.tracker
+  = image_tag(tracker.profile.image_1)
+  = link_to tracker.name, profile_path(tracker)
