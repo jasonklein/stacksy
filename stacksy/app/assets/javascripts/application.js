@@ -14,7 +14,10 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(function() {
+
+var StacksyApp = StacksyApp || {};
+
+StacksyApp.setup = function() {
   $('.message-box').hide();
   $('.message-button').click(function(){
     $(this).siblings().slideToggle();
@@ -25,8 +28,9 @@ $(function() {
   $('.send-button').click(function() {
     $(this).parent().addClass('sent-message');
   });
-});
+}
 
 
 
+$(StacksyApp.setup);
 
