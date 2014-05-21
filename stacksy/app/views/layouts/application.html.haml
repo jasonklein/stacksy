@@ -17,6 +17,7 @@
           js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=248578952014298&version=v2.0";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
     .container-fluid
       .row
         -if current_user  
@@ -25,14 +26,16 @@
             %p.special
               Pancake designed by Jacob Halton from
               %a{href: "http://www.thenounproject.com", target: "_blank"} the Noun Projectcollection.
+
         .col-md-8
           %header
             %p.notice
               = notice
             %p.alert
               = alert
-            %h1 Stacksy
-            #js-alert
+            -if current_user 
+              %h1 Stacksy
+              #js-alert
             = yield
 
         -if current_user
