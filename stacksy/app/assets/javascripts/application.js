@@ -15,12 +15,12 @@
 //= require_tree .
 
 $(function() {
-  $('.message').children('.message-box').hide();
+  $('.message-box').hide();
   $('.message-button').click(function(){
     $(this).siblings().slideToggle();
   });
   $('.reply-button').click(function(){
-    $(this).siblings().slideToggle();
+    $(this).parents('tr').children('td:nth-child(4)').children('.message-box').slideToggle();
   });
   $('.send-button').click(function() {
     $(this).parent().addClass('sent-message');
