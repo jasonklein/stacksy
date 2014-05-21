@@ -19,7 +19,11 @@ class MessagesController < ApplicationController
 
     @message = Message.new(params[:message])
     @message.recipient_id = params[:recipient_id]
+    @message.recipient_name = @message.recipient.name
     @message.sender_id = current_user.id
+    @message.sender_name = current_user.name
+
+
     @messages = current_user.messages
 
     respond_to do |format|
@@ -37,7 +41,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message = Message.find(params[:id])
-    
+
     @message.remove_current_user_or_destroy(current_user)
 
     redirect_to user_messages_path(current_user), notice: "Message deleted."

@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  attr_accessible :content, :recipient_id, :sender_id
+  attr_accessible :content, :recipient_id, :sender_id, :recipient_name, :sender_name
 
   belongs_to :sender, class_name: "User"
   belongs_to :recipient, class_name: "User"
@@ -26,21 +26,13 @@ class Message < ActiveRecord::Base
     end
   end
 
-  def ids
-    ids_array = []
-    ids_array << self.sender_id
-    ids_array << self.recipient_id
-    ids_array
-  end
-
-  def remove_current_user_or_destroy(user)
-    if self.ids.include?(0)
-      self.destroy
-    else
-      if self.sender_id == user.id
-        self.update_attributes(sender_id: 0)
+  def toggle_readability_or_destroy(user)
+      if self.sender_readability == false || self.recipient_readability == false
+        self.destroy
+      elsif self.sender == user
+        self.update_attributes(sender_readability: false)
       else
-        self.update_attributes(recipient_id: 0)
+        self.update_attributes(recipient_readability: false)
       end
     end
   end
