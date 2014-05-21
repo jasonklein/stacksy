@@ -27,14 +27,14 @@ class Message < ActiveRecord::Base
   end
 
   def toggle_readability_or_destroy(user)
-      if self.sender_readability == false || self.recipient_readability == false
-        self.destroy
-      elsif self.sender == user
-        self.update_attributes(sender_readability: false)
-      else
-        self.update_attributes(recipient_readability: false)
-      end
+    if self.sender_readability == false || self.recipient_readability == false
+      self.destroy
+    elsif self.sender == user
+      self.update_attributes(sender_readability: false)
+    else
+      self.update_attributes(recipient_readability: false)
     end
+  
   end
 
   
