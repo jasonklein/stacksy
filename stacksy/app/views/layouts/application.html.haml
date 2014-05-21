@@ -43,7 +43,7 @@
             %ul.nav.nav-pills.nav-stacked
               %li
                 %h3
-                  = link_to image_tag(current_user.profile.image_1), profile_path(current_user)
+                  = link_to image_tag(current_user.profile.image_1, class: "circular_large"), profile_path(current_user)
                   %br
                   = link_to current_user.name, profile_path(current_user)
                   %br
