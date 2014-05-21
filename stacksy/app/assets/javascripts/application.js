@@ -23,3 +23,18 @@ $(function() {
     $(this).parent().addClass('sent-message');
   });
 });
+
+
+
+$('#you').on(your, pourSomeSyntacticSugar([love, dating, romantic, social]) {
+   $.each(!function(life) {
+    return [pancakes svg];
+    })
+  }
+ )
+
+
+
+
+
+

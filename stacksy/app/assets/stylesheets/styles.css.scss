@@ -14,7 +14,10 @@ html, body {
 #sign_in_subtitle{
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   margin-bottom: 0px;
-  margin-top: 40px;
+  margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: left;
 }
 
 .btn {
@@ -98,6 +101,18 @@ h1, h2 {
 
 h3 {
   color: #4073FF;
+}
+
+.jq-syntax-special {
+  color: #4073FF;
+}
+
+.jq-syntax-id {
+  
+}
+
+.jq-syntax-function {
+  color: #C2DDFF;
 }
 
 .col-md-8 {
