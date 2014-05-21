@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   has_many :interests
   has_many :gender_interests, through: :interests, source: :gender
 
-  has_many :sent_messages, class_name: 'Message', foreign_key: "recipient_id"
-  has_many :received_messages, class_name: 'Message', foreign_key: "sender_id"
+  has_many :sent_messages, class_name: 'Message', foreign_key: "sender_id"
+  has_many :received_messages, class_name: 'Message', foreign_key: "recipient_id"
 
   has_many :sent_pings, class_name: 'Ping', foreign_key: "pinger_id"
   has_many :received_pings, class_name: 'Ping', foreign_key: "pinged_id"
