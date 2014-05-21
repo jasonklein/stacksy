@@ -48,7 +48,9 @@ class User < ActiveRecord::Base
           user.location = data.info.location
         else
           user.location = "London, England"
-        end 
+        end
+
+        user.gender_id = 5
         
         birthday = data.extra.raw_info.birthday
         user.birthday = Date.strptime(birthday, '%m/%d/%Y')
