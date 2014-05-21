@@ -3,5 +3,10 @@ class Profile < ActiveRecord::Base
 
   belongs_to :user
 
+  def add_track(tracker)
+    track = Track.new(tracker_id: tracker.id, tracked_id: self.user.id)
+    track.save!
+  end
+
 
 end

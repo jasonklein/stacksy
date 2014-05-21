@@ -1,6 +1,3 @@
 %h2 Tracked
 %h3 Who's lookin' at you, kid?
-- @received_tracks.each do |received_track|
-  - tracker = received_track.tracker
-  = image_tag(tracker.profile.image_1)
-  = link_to tracker.name, profile_path(tracker)
+= render partial: 'tracks', locals: {tracks: @received_tracks}
