@@ -8,9 +8,13 @@ class Ability
     elsif user.role? :basic
       can :read, User
       can :manage, User, id: user.id
-      can :create, Message
-      can :manage, Message, sender_id: user.id
-      elsif user.role? :paid
+      can :manage, Message#, sender_id: user.id
+      # can :manage, Message, recipient_id: user.id
+    elsif user.role? :paid
+      can :read, User
+      can :manage, User, id: user.id
+      can :manage, Message
+      can :manage, Track, tracker_id: user.id
     end
   end
 end
