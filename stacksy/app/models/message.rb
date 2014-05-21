@@ -26,13 +26,5 @@ class Message < ActiveRecord::Base
     end
   end
 
-  def set_recipient_and_render_reply_partial(user)
-    if recipient_is_current_user?(user)
-      "render partial: 'reply', locals: {recipient: message.sender}"
-    else
-      "render partial: 'reply', locals: {recipient: current_user}"
-    end
-  end
-
   
 end
