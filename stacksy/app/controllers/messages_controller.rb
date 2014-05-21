@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   authorize_resource :user 
   authorize_resource :message, through: :user
+  
   def index
     @messages = current_user.messages
   end
@@ -19,6 +20,7 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
     @message.recipient_id = params[:recipient_id]
     @message.sender_id = current_user.id
+    @messages = current_user.messages
 
     respond_to do |format|
       if @message.save
