@@ -1,1 +1,6 @@
-Pings Index
+%h2 Pings
+
+=@pings.each do |ping|
+  %p Pinger: #{ping.pinger.name}
+  %p Pinged: #{ping.pinged.name}
+  %br

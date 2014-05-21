@@ -14,8 +14,12 @@
             = i.text_area :content, cols: '50', rows: '5'
           %br
           = submit_tag "Send", class: 'send-button btn btn-success'
-
-
+    .ping
+      /.ping-button.btn.btn-success Ping
+      .ping-box
+        / = button_tag create_ping_path(pinged_id: user.id), remote: true
+        = form_tag create_ping_path(pinged_id: user.id), remote: true do
+          =submit_tag "Ping", class: 'btn btn-success'
     %br
 
 

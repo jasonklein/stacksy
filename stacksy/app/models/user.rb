@@ -73,6 +73,13 @@ class User < ActiveRecord::Base
     Message.where(id: ids)
   end
 
+  def pings
+    pinged_ids = Ping.where(pinged_id: self.id)
+    pinger_ids = Ping.where(pinger_id: self.id)
+    ids = pinged_ids + pinger_ids
+    Ping.where(id: ids)
+  end
+
   def role?(role)
     self.role.to_s == role.to_s
   end
