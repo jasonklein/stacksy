@@ -1,5 +1,9 @@
 Stacksy::Application.routes.draw do
 
+  get "tracks/tracker_index"
+
+  get "tracks/tracked_index"
+
 devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
 resources :users do
@@ -20,6 +24,8 @@ get '/users/:id/interests', to: 'users#interests', as: 'user_interest_sign_up'
 get '/users/:id/membership', to: 'users#membership', as: 'user_membership'
 get '/users/:id/profile', to: 'profiles#show', as: 'profile'
 post '/users/messages/:recipient_id', to: 'messages#create', as: 'create_message'
+get '/users/:id/tracker_index', to: 'tracks#tracker_index', as: 'tracker_index'
+get '/users/:id/tracked_index', to: 'tracks#tracked_index', as: 'tracked_index'
 
 devise_scope :user do
   root :to => "devise/sessions#new"

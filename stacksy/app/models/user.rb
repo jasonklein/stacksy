@@ -13,16 +13,19 @@ class User < ActiveRecord::Base
   has_many :interests
   has_many :gender_interests, through: :interests, source: :gender
 
-  has_many :sent_messages, class_name: 'Message', foreign_key: "recipient_id"
-  has_many :received_messages, class_name: 'Message', foreign_key: "sender_id"
+  has_many :sent_messages, class_name: 'Message', foreign_key: "sender_id"
+  has_many :received_messages, class_name: 'Message', foreign_key: "recipient_id"
 
-  has_many :pings, foreign_key: "pinger_id"
-  has_many :pings, foreign_key: "pinged_id"
+  has_many :sent_pings, class_name: 'Ping', foreign_key: "pinger_id"
+  has_many :received_pings, class_name: 'Ping', foreign_key: "pinged_id"
 
   has_many :favorites, foreign_key: "favoriter_id", dependent: :destroy
   
-  has_many :blocks, foreign_key: "blocker_id", dependent: :destroy
-  has_many :blocks, foreign_key: "blocked_id", dependent: :destroy
+  has_many :sent_blocks, class_name: 'Block', foreign_key: "blocker_id", dependent: :destroy
+  has_many :received_blocks, class_name: 'Block', foreign_key: "blocked_id", dependent: :destroy
+
+  has_many :sent_tracks, class_name: 'Track', foreign_key: "tracker_id", dependent: :destroy
+  has_many :received_tracks, class_name: 'Track', foreign_key: "tracked_id", dependent: :destroy
 
   accepts_nested_attributes_for :profile
   accepts_nested_attributes_for :sent_messages
