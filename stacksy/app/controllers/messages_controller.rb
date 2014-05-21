@@ -35,6 +35,16 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    
+    @message.remove_current_user_or_destroy(current_user)
+
+    redirect_to user_messages_path(current_user), notice: "Message deleted."
+  end
+
+
+
   
 
 end
