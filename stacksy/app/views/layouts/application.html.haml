@@ -49,7 +49,7 @@
                   %br
                   = link_to "Membership", user_membership_path(current_user)
                   %br
-                  = link_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-butter'
+                  = link_to "Log Out", destroy_user_session_path, method: :delete
 
               %li#menu_item_home
                 = link_to 'Home', home_page_based_on_role, class: '.btn btn-butter'
