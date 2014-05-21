@@ -78,8 +78,9 @@ class User < ActiveRecord::Base
     Message.where(id: ids)
   end
 
-  
 
+  
+scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
   
 
   # searchable do

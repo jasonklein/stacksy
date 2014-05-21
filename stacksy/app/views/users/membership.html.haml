@@ -1,0 +1,18 @@
+
+
+%p You are a #{membership_status} Member.
+
+%p Chose Your Membership Plan
+
+#payment_options
+  = form_for @user do |f|
+    = f.label("Basic")
+    = f.radio_button(:role, "basic")
+    = f.label("Premium")
+    = f.radio_button(:role, "paid")
+    = f.submit("Ok")
+
+
+
+  
+
