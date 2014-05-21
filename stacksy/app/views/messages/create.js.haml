@@ -4,10 +4,9 @@
 - else
   var alertHtml = "Message not sent. #{escape_javascript(@message.errors.full_messages.join(', '))}. Not sweet.<br>Please try again--love waits for no person!"
 
-
 $('#js-alert').html(alertHtml).delay(3000).fadeOut("slow", function() { $('#js-alert').html("").css('display', 'block'); });
 
 
 $('tbody').prepend(tbodyHtml);
 $('textarea').val("");
-//StacksyApp.setup();
+StacksyApp.setup();
