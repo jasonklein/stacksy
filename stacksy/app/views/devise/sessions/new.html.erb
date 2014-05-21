@@ -2,7 +2,7 @@
 <div id="sign_in_content">
 <h1 id="sign_in_title">Stacksy</h1>
 <h2 id="sign_in_subtitle">
-  <span class='jq-syntax-special'>$</span>(<span class='jq-syntax-special'>'#you'</span>).on(your, pourSomeSyntacticSugar([love, dating, romantic, social]) { <span class='jq-syntax-special'>$</span>.each(<span class='jq-syntax-special'>!</span><span class="jq-syntax-function">function</span>(life) { <span class='jq-syntax-special'>return</span> <%= raw(stacksy_logo(icon_dimensions))%>; })})
+  <span class='jq-syntax-char'>$</span>(<span class='jq-syntax'>'#you'</span>).on(your, pourSomeSyntacticSugar([love, dating, romantic, social]) { <span class='jq-syntax-char'>$</span>.each(<span class='jq-syntax-char'>!</span><span class="jq-syntax">function</span>(life) { <span class='jq-syntax-char'>return</span> <%= raw(stacksy_logo(icon_dimensions))%>; });});
 </h2>
 
 <%= render "devise/shared/links" %>
