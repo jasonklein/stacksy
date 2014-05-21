@@ -8,7 +8,7 @@
     .message
       .message-button.btn.btn-success Message
       .message-box
-        = form_tag create_message_path(recipient_id: user.id), id: 'message-content-' + user.id.to_s, remote: true do
+        = form_tag create_message_path(recipient_id: user.id), remote: true do
           = fields_for :message do |i|
             %br
             = i.text_area :content, cols: '50', rows: '5'

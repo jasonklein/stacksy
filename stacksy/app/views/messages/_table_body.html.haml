@@ -9,13 +9,8 @@
       = message.date
     %td{class: classname}
       = message.content
-      / .message-box
-      /   = form_tag create_message_path(recipient_id: user.id), id: 'message-content-' + user.id.to_s, remote: true do
-      /     = fields_for :message do |i|
-      /       %br
-      /       = i.text_area :content, cols: '50', rows: '5'
-      /     %br
-      /     = submit_tag "Send", class: 'send-button btn btn-success'
+      .message-box
+        - message.set_recipient_and_render_reply_partial(current_user)
     %td{class: classname}
       .reply-button.btn.btn-success Reply       
       .btn.btn-info Delete
