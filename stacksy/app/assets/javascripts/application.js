@@ -17,16 +17,23 @@
 
 var StacksyApp = StacksyApp || {};
 
+StacksyApp.messageBoxToggle = function(content) {
+  if (content.data('state') === 'hidden') {
+    content.slideDown();
+    content.data('state', 'visible');
+  } else if (content.data('state') === 'visible') {
+    content.slideUp();
+    content.data('state', 'hidden');
+  };
+}
+
 StacksyApp.setup = function() {
-  $('.message-box').hide();
+  $('.message-box').data('state', 'hidden').hide();
   $('.message-button').click(function(){
-    $(this).siblings().slideToggle();
+    StacksyApp.messageBoxToggle($(this).parent().children('.message-box'));
   });
   $('.reply-button').click(function(){
-    $(this).parents('tr').children('td:nth-child(4)').children('.message-box').slideToggle();
-  });
-  $('.send-button').click(function() {
-    $(this).parent().addClass('sent-message');
+    StacksyApp.messageBoxToggle($(this).parents('tr').children('td:nth-child(4)').children('.message-box'));
   });
 }
 
