@@ -1,5 +1,9 @@
 Stacksy::Application.routes.draw do
 
+  get "tracks/tracker_index"
+
+  get "tracks/tracked_index"
+
 devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
 resources :users do
