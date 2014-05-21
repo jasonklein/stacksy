@@ -1,2 +1,6 @@
-%h1 Tracks#tracker_index
-%p Find me in app/views/tracks/tracker_index.html.haml
+%h2 Tracker
+%h3 Who you lookin' at.
+- @sent_tracks.each do |sent_track|
+  - tracker = sent_track.tracker
+  = image_tag(tracker.profile.image_1)
+  = link_to tracker.name, profile_path(tracker)
