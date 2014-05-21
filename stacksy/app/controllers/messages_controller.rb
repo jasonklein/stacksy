@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
-
+  authorize_resource :user 
+  authorize_resource :message, through: :user
   def index
+    # raise
     @messages = current_user.messages
   end
 

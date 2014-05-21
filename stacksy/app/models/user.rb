@@ -73,21 +73,11 @@ class User < ActiveRecord::Base
     Message.where(id: ids)
   end
 
-
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
   
 scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
-  
-
-  # searchable do
-  #   integer :gender_id
-  #   string :relationship_status
-  #   string :location
-  #   #birthday
-
-
-
-  # end
-
   
 end
 
