@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
  
   def show
-    @user = User.find(current_user.id) 
-    @profile = @user.profile
+    @profile = Profile.find(params[:id])
+    @user = @profile.user
     if @profile.user != current_user
       @profile.add_track(current_user)
     end

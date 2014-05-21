@@ -43,22 +43,14 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.name = data.info.name
         user.email = data.info.email
+
         if data.info.location?  
           user.location = data.info.location
         else
-          user.location = "London"
+          user.location = "London, England"
         end
 
-        gender = data.extra.raw_info.gender
-
-        case gender
-        when 'male'
-          user.gender_id = 1
-        when 'female'
-          user.gender_id = 2
-        else
-          user.gender_id = 5
-        end     
+        user.gender_id = 5
         
         birthday = data.extra.raw_info.birthday
         user.birthday = Date.strptime(birthday, '%m/%d/%Y')
