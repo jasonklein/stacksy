@@ -43,11 +43,11 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.name = data.info.name
         user.email = data.info.email
-        
+
         if data.info.location?  
           user.location = data.info.location
         else
-          user.location = "London, United Kingdom"
+          user.location = "London, England"
         end 
         
         birthday = data.extra.raw_info.birthday
