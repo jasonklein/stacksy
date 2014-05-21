@@ -1,2 +1,5 @@
-%h1 Tracks#tracked_index
-%p Find me in app/views/tracks/tracked_index.html.haml
+%h2 Tracked
+%h3 Who's lookin' at you, kid?
+- @received_tracks.each do |received_track|
+        =image_tag(received_track.user.profile.image_1)
+        =user.name
