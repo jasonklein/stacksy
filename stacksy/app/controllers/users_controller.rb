@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   
   end
 
-  def interests
+  def gender_zipcode
     @user = current_user
   end
 
