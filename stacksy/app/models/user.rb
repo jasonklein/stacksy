@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_one :profile, dependent: :destroy
   belongs_to :gender
+  
   has_many :interests
   has_many :gender_interests, through: :interests, source: :gender
 
