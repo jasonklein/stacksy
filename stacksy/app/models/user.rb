@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
   has_many :sent_messages, class_name: 'Message', foreign_key: "sender_id"
   has_many :received_messages, class_name: 'Message', foreign_key: "recipient_id"
 
-  has_many :sent_pings, class_name: 'Ping', foreign_key: "pinger_id"
-  has_many :received_pings, class_name: 'Ping', foreign_key: "pinged_id"
+  has_many :sent_pings, class_name: 'Ping', foreign_key: "pinger_id", dependent: :destroy
+  has_many :received_pings, class_name: 'Ping', foreign_key: "pinged_id", dependent: :destroy
 
   has_many :favorites, foreign_key: "favoriter_id", dependent: :destroy
   

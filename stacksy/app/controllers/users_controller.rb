@@ -19,9 +19,8 @@ class UsersController < ApplicationController
     end
 
     @q = User.ransack(params[:q])
-    @users = @q.result.without_user(current_user)
-    
-
+    @users = @q.result
+  
   end
 
   def interests

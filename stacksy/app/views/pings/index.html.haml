@@ -1,6 +1,13 @@
 %h2 Pings
 
-=@pings.each do |ping|
+%h2 Sent Pings
+-@pings_sent.each do |ping|
+  %p Pinger: #{ping.pinger.name}
+  %p Pinged: #{ping.pinged.name}
+  %br
+
+%h2 Received Pings
+-@pings_received.each do |ping|
   %p Pinger: #{ping.pinger.name}
   %p Pinged: #{ping.pinged.name}
   %br

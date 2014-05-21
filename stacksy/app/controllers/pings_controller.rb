@@ -1,6 +1,9 @@
 class PingsController < ApplicationController
   def index
-    @pings = current_user.pings
+    
+    @pings_sent = current_user.sent_pings.sent_pings_list
+    @pings_received = current_user.received_pings.received_pings_list
+     
   end
 
   def create
@@ -21,5 +24,5 @@ class PingsController < ApplicationController
     end
   end
 
-
 end
+
