@@ -1,26 +1,48 @@
-%h2 Search
-
-= search_form_for @q, url: user_search_path do |f|
-  = f.label "Gender"
-  = f.select :gender_title_eq, options_from_collection_for_select(Gender.all, "title", "title"), include_blank: true
-  %br
-  %p Age Range
-  %input#amount{readonly: true}
-  #slider
-  = f.hidden_field :birthday_lteq
-  = f.hidden_field :birthday_gteq
-  %br
-  %p Distance From You
-  = f.number_field :distance
-  = f.submit "Search"
+%h2 Find your perfect match.
+%form.form-inline.search-form
+  = search_form_for @q, url: user_search_path do |f|
+    -@genders.each do |gender|
+      = check_box_tag "q[gender_id_eq_any][]", gender.id
+      = f.label gender.title
+    %br 
+    = f.hidden_field :birthday_lteq
+    = f.hidden_field :birthday_gteq
+    %p
+      = f.label "Age Range:"
+      %input#amount{readonly: true}
+    #slider
+    %br
+    = f.label "Distance From You"
+    = f.number_field :distance
+    %br
+    = f.submit "Git", :class => "btn btn-lg btn-search-submit"
 
 %body
-  %header
+  .search-results
     -@users.each do |user|
-      .user_search
-        =image_tag(user.profile.image_1)
-        =user.name
+      .user-display.center-block.search-profile-circles
+        = link_to image_tag(user.profile.image_1, class: "circular_large"), profile_path(user)
+        .user-menu-info
+          .user-menu-name
+            = link_to user.name, profile_path(user)
+          .user-menu-extra
+            = user.gender.title
+            = user.location
+            = user.age
+            .communication
+              .ping-button       
+                = link_to "Ping", create_ping_path(pinged_id: user.id), method: :post, remote: true, class: 'btn btn-warning'
+              .message-button
+                = link_to "Message", 'javascript:;', class: 'btn btn-success'
+              // Message button made a link so as to be sized similarly to ping button.
+            .message-box
+              = form_tag create_message_path(recipient_id: user.id), remote: true do
+                = fields_for :message do |i|
+                  %br
+                  = i.text_area :content, cols: '50', rows: '5'
+                %br
+                = submit_tag "Send", class: 'send-button btn btn-success'
 
 
 
-  
+    
