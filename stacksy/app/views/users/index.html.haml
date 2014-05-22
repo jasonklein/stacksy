@@ -1,4 +1,4 @@
-Admin Index
+%h2 Admin Index
 
 !!! 5
 %head
@@ -7,6 +7,16 @@ Admin Index
 %body
   %header
     -@users.each do |user|
-      =user.name
+      .index-user
+        =user.name
+        %p #{user.location}, #{user.zipcode}
+        %p Gender: #{user.gender_id} Gender ID: #{user.gender.title}
+        %p Gender Interests: #{user.gender_interest_ids}
+        =user.age
+        %br
+        %br
+
+
+
 
   

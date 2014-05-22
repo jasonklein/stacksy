@@ -6,8 +6,7 @@ class UsersController < ApplicationController
 
   def home
     @users = User.without_user(current_user)  
-    @users.people_who_would_be_interested_in_me(current_user)
-    @users.people_i_would_be_interested_in(current_user) 
+    @users = (@users.people_who_would_be_interested_in_me(current_user) & @users.people_i_would_be_interested_in(current_user))
   end
 
   def search
@@ -100,9 +99,11 @@ end
   helper_method :membership_status
   def membership_status
     if current_user.role == "basic"
-      "Basic"
+      "a Basic"
     elsif current_user.role == "paid"
-      "Premium"
+      "a Premium"
+    else
+      "an Admin"
     end
   end
 end
