@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
-  authorize_resource 
+  authorize_resource :user
+  authorize_resource :message, through: :user
   
   def index
     current_user.mark_unviewed_messages_viewed
