@@ -4,12 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :sent_messages_attributes, :received_messages_attributes, :zipcode, :latitude, :location, :longitude, :gender_interest_ids
 
-  # geocoded_by :zipcode
-  # after_validation :geocode, :if => :zipcode_changed?
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :sent_messages_attributes, :received_messages_attributes, :zipcode, :latitude, :location, :longitude, :gender_interest_ids
+
+
+  geocoded_by :address
+  after_validation :geocode
 
   has_one :profile, dependent: :destroy
   belongs_to :gender
@@ -33,6 +34,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :sent_messages
   accepts_nested_attributes_for :received_messages
 
+
   def self.from_omniauth(data)     
     if user = User.find_by_email(data.info.email)
       user.provider = data.provider
@@ -45,11 +47,8 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.name = data.info.name
         user.email = data.info.email
-
         if data.info.location?  
           user.location = data.info.location
-        else
-          user.location = "London, England"
         end
 
         user.gender_id = 5
@@ -84,6 +83,11 @@ class User < ActiveRecord::Base
 
   def role?(role)
     self.role.to_s == role.to_s
+  end
+
+# helper_method :geocode_entry
+  def address
+    zipcode + " " + location
   end
   
 scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }

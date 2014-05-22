@@ -18,8 +18,28 @@ class UsersController < ApplicationController
       reverse_age(params[:q][:birthday_lteq], params[:q][:birthday_gteq])
     end
 
-    @q = User.ransack(params[:q])
-    @users = @q.result
+    # if params[:q][:distance]
+    #   @q = current_user.nearbys(params[:q][:distance]).ransack(params[:q].except(:distance))
+    # elsif params[:q]
+      
+    # end
+    if params[:q]
+
+      assign_params = params[:q]
+      distance = assign_params.delete(:distance)
+      @q = User.ransack(assign_params)
+      ransack_results = @q.result
+      geocoder_results = current_user.nearbys(distance)
+      @users = geocoder_results.where(id: ransack_results)
+
+    else
+      
+      @q = User.ransack(params[:q])
+      @users = @q.result
+      
+    end
+    
+
   end
 
   def gender_zipcode

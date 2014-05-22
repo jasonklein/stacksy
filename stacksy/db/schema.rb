@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140522092726) do
+ActiveRecord::Schema.define(:version => 20140522110442) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20140522092726) do
     t.string   "zipcode"
     t.float    "latitude"
     t.float    "longitude"
+    t.float    "distance"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
