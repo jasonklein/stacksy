@@ -1,7 +1,25 @@
 %h2 Edit Your Profile
 = form_for @profile do |f|
   = f.label :industry
-  = f.select :industry, options_for_select(["Analytics", "Design", "Web Development", "Digital Media", "Gaming", "IT Support", "Mobile Development", "Telecoms"])
-  =f.submit
+  = f.select :industry, options_for_select(["Tech", "Analytics", "Design", "Web Development", "Digital Media", "Gaming", "IT Support", "Mobile Development", "Telecoms"])
+  = f.label :occupation
+  = f.text_field :occupation
+  = f.label "Why tech?"
+  = f.text_area :why_tech
+  = f.label :stack
+  = f.text_area :stack
+  = f.label "Favorite Characters"
+  = f.text_area :fav_characters
+  = f.label "Local Spots"
+  = f.text_area :fav_spots
+  = f.label "Favorite Places"
+  = f.text_area :fav_places
+  = f.label "Guilty Pleasure"
+  = f.text_area :guilty_pleasure
+  = f.label :link
+  = f.text_field :link
+  = f.text_area :quip
+  = f.submit
+
 
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140522112119) do
+ActiveRecord::Schema.define(:version => 20140522212758) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -73,6 +73,9 @@ ActiveRecord::Schema.define(:version => 20140522112119) do
     t.integer  "user_id",                                    :null => false
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
+    t.string   "industry",        :default => "Tech"
+    t.string   "why_tech"
+    t.string   "stack"
   end
 
   create_table "tracks", :force => true do |t|
