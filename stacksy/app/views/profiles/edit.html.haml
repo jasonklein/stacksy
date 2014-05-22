@@ -1,6 +1,7 @@
 %h2 Edit Your Profile
-= form_for @profile
+= form_for @profile do |f|
   = f.label :industry
-  = f.select :industry, options_for_select ["Analytics", "Design", "Web Development", "Digital Media", "Gaming", "IT Support", "Mobile Development", "Telecoms"]
+  = f.select :industry, options_for_select(["Analytics", "Design", "Web Development", "Digital Media", "Gaming", "IT Support", "Mobile Development", "Telecoms"])
+  =f.submit
 
   
