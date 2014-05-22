@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   authorize_resource :message, through: :user
   
   def index
+    current_user.mark_unviewed_messages_viewed
     @messages = current_user.messages
   end
 

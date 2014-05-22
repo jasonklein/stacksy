@@ -75,6 +75,12 @@ class User < ActiveRecord::Base
     self.received_messages.unviewed
   end
 
+  def mark_unviewed_messages_viewed
+    self.unviewed_messages.each do |message|
+      message.update_attributes(viewed: true)
+    end
+  end
+
   def pings
     pinged_ids = Ping.where(pinged_id: self.id)
     pinger_ids = Ping.where(pinger_id: self.id)

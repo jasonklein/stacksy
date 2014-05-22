@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  attr_accessible :content, :recipient_id, :sender_id, :sender_readability, :recipient_readability
+  attr_accessible :content, :recipient_id, :sender_id, :sender_readability, :recipient_readability, :viewed
 
   belongs_to :sender, class_name: "User"
   belongs_to :recipient, class_name: "User"
@@ -34,9 +34,10 @@ class Message < ActiveRecord::Base
       self.update_attributes(sender_readability: false)
     else
       self.update_attributes(recipient_readability: false)
-    end
-  
+    end  
   end
+
+
 
   
 end

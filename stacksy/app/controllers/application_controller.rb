@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   
-private
+  private
   helper_method :home_page_based_on_role
   def home_page_based_on_role
     if current_user.role == "admin"
@@ -25,6 +25,8 @@ private
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to user_membership_path , alert: "You can't access this page. Upgrade your Membership for more privileges."
   end
+
+
 
   # def after_sign_up_path_for(resource)
   #   '/users/:id/interests'
