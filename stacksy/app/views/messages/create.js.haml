@@ -1,5 +1,5 @@
 - if @message.persisted?
-  var alertHtml = "Message sent to #{escape_javascript(@message.recipient.name)}. Sweet!"
+  var alertHtml = "Sent. Sweet!"
   var tbodyHtml = "#{escape_javascript(render @message)}"
 - else
   var alertHtml = "Message not sent. #{escape_javascript(@message.errors.full_messages.join(', '))}. Not sweet.<br>Please try again--love waits for no person!"

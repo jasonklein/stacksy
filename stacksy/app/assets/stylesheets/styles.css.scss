@@ -50,14 +50,12 @@ header{
 }
 
 #js-alert {
-  margin-top: 20px;
-  margin-bottom: 50px;
+  width: 300px;
+  margin: 30px auto 50px auto;
+  font-family: 'Pacifico', cursive;
+  font-size: 25px;
 }
 
-#js-alert.hightlight {
-  background-color: red;
-  font-family: 'Pacifico', cursive; 
-}
 
 a:hover#facebook_log_in_button{
   cursor: pointer;
@@ -102,7 +100,7 @@ h1, h2 {
   
 }
 
-h3 {
+h3, #js-alert {
   color: #4073FF;
 }
 
