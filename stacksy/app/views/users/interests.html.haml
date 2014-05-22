@@ -1,7 +1,0 @@
-.interests_sign_up
-  %p Who are you looking for?
-  = form_for @user do |f|
-    - Gender.all.each do |gender|
-      = check_box_tag :gender_interest_ids, gender.id, @user.gender_interest_ids.include?(gender.id)
-      = label_tag gender.title
-    = f.submit

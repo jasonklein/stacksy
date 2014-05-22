@@ -23,15 +23,19 @@ class UsersController < ApplicationController
   
   end
 
-  def interests
+  def gender_zipcode
     @user = current_user
+    @genders = Gender.all
   end
 
   def update
-    @user = current_user
-
+    @user = User.find(params[:id])
+    # FIX ROUTE
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(params[:user]) && current_user.gender_interests.any?
+        format.html {redirect_to user_home_path, notice: 'Your preferences were succesfully saved!'}
+        format.json {head :no_content}
+      elsif @user.update_attributes(params[:user])
         format.html {redirect_to user_home_path, notice: 'Your preferences were succesfully saved!'}
         format.json {head :no_content}
       else
@@ -48,13 +52,6 @@ end
 def membership
   @user = current_user
 end
-
-
-
-
-
-
-
 
 
 def age
@@ -85,9 +82,6 @@ private
       "Premium"
     end
   end
-
-
-
 end
 
 

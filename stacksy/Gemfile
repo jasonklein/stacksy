@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'sunspot_rails'
 gem 'ransack'
 gem 'cancan'
+gem 'geocoder'
 
 
 # Gems used only for assets and not required

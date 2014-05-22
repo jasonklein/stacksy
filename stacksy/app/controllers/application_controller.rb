@@ -9,7 +9,7 @@ private
       users_path
     elsif current_user.role == "new"
       current_user.update_attributes(role: "basic")
-      user_interest_sign_up_path(current_user)
+      user_gender_zipcode_sign_up_path(current_user)
     else
       user_home_path(current_user)
     end

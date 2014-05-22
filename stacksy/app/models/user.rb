@@ -6,11 +6,14 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :gender_interest_ids, :sent_messages_attributes, :received_messages_attributes  
+  attr_accessible :age, :gender_id, :location, :name, :other, :relationship_status, :role, :profile_attributes, :sent_messages_attributes, :received_messages_attributes, :zipcode, :latitude, :location, :longitude, :gender_interest_ids
+
+  # geocoded_by :zipcode
+  # after_validation :geocode, :if => :zipcode_changed?
 
   has_one :profile, dependent: :destroy
   belongs_to :gender
-  
+
   has_many :interests
   has_many :gender_interests, through: :interests, source: :gender
 
