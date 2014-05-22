@@ -1,6 +1,6 @@
-%h2 Edit Your Profile
-%form.form-inline
-  = form_for @profile do |f|
+%h2 Update Your Profile
+.form-inline
+  = form_for ([@user, @profile]) do |f|
     = f.select :industry, options_for_select(["Tech", "Analytics", "Design", "Web Development", "Digital Media", "Gaming", "IT Support", "Mobile Development", "Telecoms"]), class: 'form-control'
     = f.text_field :occupation, placeholder: "What's your job?", class: 'form-control'
     %br

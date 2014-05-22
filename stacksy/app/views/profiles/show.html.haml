@@ -2,66 +2,73 @@
   .col-md-3
     - if @profile.images.any?
       - @profile.images.each do |image|
-        = image_tag(image)
+        = image_tag(image, class: 'circular_large')
   .col-md-1
 
   .col-md-7.text-left
     %h2
       = @user.name
       - if can? :update, @user
-        = link_to "Edit", edit_profile_path(@user), class: 'btn btn-success'
+        = link_to "Edit", edit_user_profile_path(@user, @profile), class: 'btn btn-success'
 
     .basic_info
       %h4
         = @user.location 
       %h4
         = "#{@user.gender.title.capitalize}, #{@user.age}"
-      = @profile.quip.try
-    
+      .quip
+        = @profile.try(:quip)
+      - if @user.gender_interests.any?
+        %h4
+          Looking for: 
+          - @user.gender_interests.each do |interest|
+            = interest.gender.title.capitalize
+      %br
+      %br 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Tech Talk
       .panel-body
         %h4 Industry
         %p
-          = @profile.industry.try
+          = @profile.try(:industry)
         %h4 Occupation
         %p
-          = @profile.occupation.try
+          = @profile.try(:occupation)
         %h4 Why tech?
         %p
-          = @profile.why_tech.try
+          = @profile.try(:why_tech)
         %h4 Stack (if applicable)
         %p
-          = @profile.stack.try
+          = @profile.try(:stack)
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Favorite Characters
       .panel-body
-        = @profile.fav_characters.try
+        = @profile.try(:fav_characters)
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Local Spots
       .panel-body
-        = @profile.fav_spots.try
+        = @profile.try(:fav_spots)
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Favorite Places (in this or any other dimension)
       .panel-body
-        = @profile.fav_places.try
+        = @profile.try(:fav_places)
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Guilty Pleasure
       .panel-body
-        = @profile.guilty_pleasure.try
+        = @profile.try(:guilty_pleasure)
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Link you should get
       .panel-body
-        = @profile.link.try
+        = @profile.try(:link)
   .col-md-1
