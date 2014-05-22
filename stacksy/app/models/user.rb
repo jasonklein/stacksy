@@ -74,11 +74,31 @@ class User < ActiveRecord::Base
     Message.where(id: ids)
   end
 
+  def unviewed_messages
+    self.received_messages.unviewed
+  end
+
+  def mark_unviewed_messages_viewed
+    self.unviewed_messages.each do |message|
+      message.update_attributes(viewed: true)
+    end
+  end
+
   def pings
     pinged_ids = Ping.where(pinged_id: self.id)
     pinger_ids = Ping.where(pinger_id: self.id)
     ids = pinged_ids + pinger_ids
     Ping.where(id: ids)
+  end
+
+  def unviewed_pings
+    self.received_pings.unviewed
+  end
+
+  def mark_unviewed_pings_viewed
+    self.unviewed_pings.each do |ping|
+      ping.update_attributes(viewed: true)
+    end
   end
 
   def role?(role)
@@ -90,7 +110,7 @@ class User < ActiveRecord::Base
     zipcode + " " + location
   end
   
-scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
+  scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
   
 end
 

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140522110442) do
+=======
+ActiveRecord::Schema.define(:version => 20140522112119) do
+>>>>>>> badges
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -37,18 +41,20 @@ ActiveRecord::Schema.define(:version => 20140522110442) do
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.text     "content"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.boolean  "sender_readability",    :default => true
     t.boolean  "recipient_readability", :default => true
+    t.boolean  "viewed",                :default => false
   end
 
   create_table "pings", :force => true do |t|
     t.integer  "pinger_id"
     t.integer  "pinged_id"
     t.string   "ping_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "viewed",     :default => false
   end
 
   create_table "profiles", :force => true do |t|

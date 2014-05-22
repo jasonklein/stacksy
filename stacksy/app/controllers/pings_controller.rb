@@ -1,9 +1,9 @@
 class PingsController < ApplicationController
+  
   def index
-    
+    current_user.mark_unviewed_pings_viewed
     @pings_sent = current_user.sent_pings.sent_pings_list
-    @pings_received = current_user.received_pings.received_pings_list
-     
+    @pings_received = current_user.received_pings.received_pings_list     
   end
 
   def create
