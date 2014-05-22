@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, notice: "Nope!"
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    redirect_to root_url, notice: "Whoops! That record cannot be found."
+  end
+
   
   private
   helper_method :home_page_based_on_role
