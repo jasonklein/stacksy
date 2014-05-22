@@ -10,7 +10,7 @@
     = check_box_tag 'user[gender_interest_ids][]', gender.id, @user.gender_interest_ids.include?(gender.id)
     = label_tag gender.title
   %br
-  %p Zip Code
+  %p Postal Code
   = f.text_field :zipcode
   %br
   = f.submit
