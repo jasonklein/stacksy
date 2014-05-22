@@ -7,6 +7,7 @@ class Message < ActiveRecord::Base
   validates :content, presence: true
 
   default_scope order('created_at DESC')
+  scope :unviewed, where(viewed: false)
 
   def date
     self.created_at.strftime('%d %b %y')

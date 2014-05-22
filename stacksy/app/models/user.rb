@@ -71,6 +71,10 @@ class User < ActiveRecord::Base
     Message.where(id: ids)
   end
 
+  def unviewed_messages
+    self.received_messages.unviewed
+  end
+
   def pings
     pinged_ids = Ping.where(pinged_id: self.id)
     pinger_ids = Ping.where(pinger_id: self.id)
@@ -82,7 +86,7 @@ class User < ActiveRecord::Base
     self.role.to_s == role.to_s
   end
   
-scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
+  scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
   
 end
 
