@@ -1,1 +1,6 @@
-Edit Profile Page
+%h2 Edit Your Profile
+= form_for @profile
+  = f.label :industry
+  = f.select :industry, options_for_select ["Analytics", "Design", "Web Development", "Digital Media", "Gaming", "IT Support", "Mobile Development", "Telecoms"]
+
+  
