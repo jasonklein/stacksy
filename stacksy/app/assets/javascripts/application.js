@@ -84,7 +84,5 @@ StacksyApp.ageslider = function(){
 //   });
 // }
 
->>>>>>> badges
-
 $(StacksyApp.setup);
 

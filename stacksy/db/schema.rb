@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20140522110442) do
-=======
 ActiveRecord::Schema.define(:version => 20140522112119) do
->>>>>>> badges
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
