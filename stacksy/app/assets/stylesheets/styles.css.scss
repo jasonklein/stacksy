@@ -4,12 +4,7 @@ html, body {
   height: 100%;
 }
 
-#sign_in_content{
-  /*background-image:url("pancakesyrup.jpg");
-  background-repeat: no-repeat;
-  background-position: center 100px;
-  background-size: 100% auto;*/
-}
+
 
 #sign_in_subtitle{
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -93,11 +88,11 @@ a:hover#facebook_log_in_button{
 h1 {
   font-size: 150px;
   font-family: 'Pacifico', cursive;
+  margin-bottom: 80px;
 }
 
 h1, h2 {
-  color: #FF6000;
-  
+  color: #FF6000; 
 }
 
 h3, #js-alert {
@@ -132,10 +127,6 @@ svg {
 
 table {
   text-align: left;
-}
-
-.col-md-8.col-md-2 {
-  background-color: red;
 }
 
 td.message-box {
