@@ -10,8 +10,8 @@ html, body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   margin-bottom: 0px;
   margin-top: 50px;
-  padding-left: 30px;
-  padding-right: 30px;
+  /*padding-left: 30px;
+  padding-right: 30px;*/
   text-align: left;
 }
 
@@ -99,12 +99,17 @@ h3, #js-alert {
   color: #4073FF;
 }
 
-.jq-syntax-char {
+.jq-regular {
   color: #4073FF;
 }
 
-.jq-syntax {
-  color: #FF0D70;
+.jq-function {
+  color: #5CB85C;
+  font-style: italic;
+}
+
+.jq-special {
+  color: #FF5C97;
 }
 
 .col-md-8 {
