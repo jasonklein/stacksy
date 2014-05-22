@@ -8,5 +8,26 @@ class Profile < ActiveRecord::Base
     track.save!
   end
 
+  def images
+    images = []
+    if self.image_1
+      images << self.image_1
+    end
+    if self.image_2
+      images << self.image_2
+    end
+    if self.image_3
+      images << self.image_3
+    end
+    if self.image_4
+      images << self.image_4
+    end
+    if self.image_5
+      images << self.image_5
+    end
+    images
+  end
+
+
 
 end

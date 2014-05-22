@@ -1,15 +1,35 @@
+.row
+.col-md-4
+  - if @profile.images.any?
+    - @profile.images.each do |image|
+      = image_tag(image)
+.col-md-1
 
-Profile Show
+.col-md-7.text-left
+  %h2
+    = @user.name
 
-.profile_image
-  =image_tag @user.profile.image_1
+  .basic_info
+    %h4
+      = @user.location 
+    %h4
+      = "#{@user.gender.title.capitalize}, #{@user.age}"
+  
+  %h3
+    Tech Talk
+    %h4 Industry
+    %h4 Job
+    %h4 Why tech?
+    %h4 Stack (if applicable)
 
-%h2=@user.name
+  %h3 Favorite Characters
 
-.basic_info
-  =@user.location 
-  %br
-  =@user.gender.title 
-  %br
-  =@user.age 
-  %br
+  %h3 Local Spots
+
+  %h3 Favorite Places (in this or any other dimension)
+
+  %h3 Guilty Pleasure
+
+  %h3 Link you should get
+
+  %h3 Quip
