@@ -74,11 +74,31 @@ class User < ActiveRecord::Base
     Message.where(id: ids)
   end
 
+  def unviewed_messages
+    self.received_messages.unviewed
+  end
+
+  def mark_unviewed_messages_viewed
+    self.unviewed_messages.each do |message|
+      message.update_attributes(viewed: true)
+    end
+  end
+
   def pings
     pinged_ids = Ping.where(pinged_id: self.id)
     pinger_ids = Ping.where(pinger_id: self.id)
     ids = pinged_ids + pinger_ids
     Ping.where(id: ids)
+  end
+
+  def unviewed_pings
+    self.received_pings.unviewed
+  end
+
+  def mark_unviewed_pings_viewed
+    self.unviewed_pings.each do |ping|
+      ping.update_attributes(viewed: true)
+    end
   end
 
   def role?(role)
@@ -92,6 +112,7 @@ class User < ActiveRecord::Base
   
   scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
 
+
   scope :people_who_would_be_interested_in_me, lambda {|current_user| select{|user| user.gender_interest_ids.include? current_user.gender_id}}
 
   # scope :people_i_would_be_interested_in, lambda { where(current_user.gender_interest_ids.include? :gender_id)}
@@ -100,8 +121,6 @@ class User < ActiveRecord::Base
 
   
 
-
-  
 end
 
 
