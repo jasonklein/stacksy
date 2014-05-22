@@ -93,12 +93,16 @@ h1 {
   color: #FF6000; 
 }
 
+<<<<<<< HEAD
 h2{
   color: #4073FF;
   font-family: 'HelveticaNeue-Light'
 }
 
 h3, #js-alert {
+=======
+h3, #js-alert, .alert, .notice {
+>>>>>>> profile
   color: #4073FF;
 }
 
@@ -147,6 +151,7 @@ td.message-box {
 
 .message-button, .ping-button {
   display: inline;
+
 
 }
 
@@ -217,5 +222,11 @@ label{
   display: inline-block;
   width: 280px;
   margin-bottom: 20px;
+
+
+}
+
+h3.panel-title {
+  font-size: 20px;
 
 }

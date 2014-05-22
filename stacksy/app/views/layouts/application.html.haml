@@ -19,14 +19,13 @@
             %a{href: "http://www.thenounproject.com", target: "_blank"} the Noun Project collection.
         .col-md-8
           %header
+            %h1 Stacksy
             %p.notice
               = notice
             %p.alert
-              = alert
-            -if current_user 
-              %h1 Stacksy
-              #js-alert
-            = yield
+              = alert            
+            #js-alert
+          = yield
         .col-md-2
           %ul.nav.nav-pills.nav-stacked
             %li

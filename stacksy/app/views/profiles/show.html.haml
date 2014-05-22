@@ -1,35 +1,57 @@
 .row
-.col-md-4
-  - if @profile.images.any?
-    - @profile.images.each do |image|
-      = image_tag(image)
-.col-md-1
+  .col-md-4
+    - if @profile.images.any?
+      - @profile.images.each do |image|
+        = image_tag(image)
+  .col-md-1
 
-.col-md-7.text-left
-  %h2
-    = @user.name
+  .col-md-7.text-left
+    %h2
+      = @user.name
+      - if can? :update, @user
+        = link_to "Edit", edit_profile_path(@user), class: 'btn btn-success'
 
-  .basic_info
-    %h4
-      = @user.location 
-    %h4
-      = "#{@user.gender.title.capitalize}, #{@user.age}"
-  
-  %h3
-    Tech Talk
-    %h4 Industry
-    %h4 Job
-    %h4 Why tech?
-    %h4 Stack (if applicable)
+    .basic_info
+      %h4
+        = @user.location 
+      %h4
+        = "#{@user.gender.title.capitalize}, #{@user.age}"
+    
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Tech Talk
+      .panel-body
+        %h4 Industry
+        %h4 Occupation
+        %h4 Why tech?
+        %h4 Stack (if applicable)
 
-  %h3 Favorite Characters
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Favorite Characters
+      .panel-body
 
-  %h3 Local Spots
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Local Spots
+      .panel-body
 
-  %h3 Favorite Places (in this or any other dimension)
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Favorite Places (in this or any other dimension)
+      .panel-body
 
-  %h3 Guilty Pleasure
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Guilty Pleasure
+      .panel-body
 
-  %h3 Link you should get
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Link you should get
+      .panel-body
 
-  %h3 Quip
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Quip
+      .panel-body
