@@ -49,7 +49,9 @@
             %li#menu_item_pings
               = link_to(user_pings_path(current_user), class: 'btn btn-butter') do
                 Pings
-                %span.badge.pull-right 17
+                - if current_user.unviewed_pings.any?
+                  %span.badge.pull-right
+                    = current_user.unviewed_pings.count
             %li#menu_item_tracker
               = link_to 'Tracker', tracker_index_path(current_user), class: 'btn btn-butter'
             %li#menu_item_tracked

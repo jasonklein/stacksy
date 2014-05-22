@@ -88,6 +88,16 @@ class User < ActiveRecord::Base
     Ping.where(id: ids)
   end
 
+  def unviewed_pings
+    self.received_pings.unviewed
+  end
+
+  def mark_unviewed_pings_viewed
+    self.unviewed_pings.each do |ping|
+      ping.update_attributes(viewed: true)
+    end
+  end
+
   def role?(role)
     self.role.to_s == role.to_s
   end

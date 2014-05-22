@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140522103904) do
+ActiveRecord::Schema.define(:version => 20140522112119) do
 
   create_table "blocks", :force => true do |t|
     t.integer  "blocker_id"
@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(:version => 20140522103904) do
     t.integer  "pinger_id"
     t.integer  "pinged_id"
     t.string   "ping_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "viewed",     :default => false
   end
 
   create_table "profiles", :force => true do |t|
