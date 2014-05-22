@@ -5,7 +5,9 @@
     = user.gender.title
     = user.location
     = user.age
-    .message
+    .communication
+      .ping-button       
+        = link_to "Ping", create_ping_path(pinged_id: user.id), method: :post, remote: true, class: 'btn btn-warning'
       .message-button.btn.btn-success Message
       .message-box
         = form_tag create_message_path(recipient_id: user.id), remote: true do
@@ -14,9 +16,7 @@
             = i.text_area :content, cols: '50', rows: '5'
           %br
           = submit_tag "Send", class: 'send-button btn btn-success'
-    .ping        
-      = form_tag create_ping_path(pinged_id: user.id), remote: true do
-        =submit_tag "Ping", class: 'btn btn-success'
+      
     %br
 
 

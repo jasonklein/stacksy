@@ -21,7 +21,7 @@ StacksyApp.setup = function() {
   $('.message-button').unbind('click');
   $('.message-box').hide();
   $('.message-button').click(function(){
-    $(this).parent().children('div:nth-child(2)').slideToggle();
+    $(this).parent().children('.message-box').slideToggle();
   });
   $('.message-button').click(function(){
     $(this).parents('tr').children('td:nth-child(4)').children('.message-box').slideToggle();
