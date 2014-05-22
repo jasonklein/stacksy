@@ -1,11 +1,25 @@
 .row
-  .col-md-3
+  .col-md-4
     - if @profile.images.any?
       - @profile.images.each do |image|
         = image_tag(image, class: 'circular_large')
+    %br
+    %br
+    .ping-button       
+      = link_to "Ping", create_ping_path(pinged_id: @user.id), method: :post, remote: true, class: 'btn btn-warning'
+    .message-button
+      = link_to "Message", 'javascript:;', class: 'btn btn-success'
+      // Message button made a link so as to be sized similarly to ping button.
+    .message-box
+      = form_tag create_message_path(recipient_id: @user.id), remote: true do
+        = fields_for :message do |i|
+          %br
+          = i.text_area :content, cols: '50', rows: '5'
+        %br
+        = submit_tag "Send", class: 'send-button btn btn-success'
   .col-md-1
 
-  .col-md-7.text-left
+  .col-md-6.text-left
     %h2
       = @user.name
       - if can? :update, @user
@@ -68,7 +82,9 @@
 
     .panel.panel-primary
       .panel-heading
-        %h3.panel-title Link you should get
+        %h3.panel-title Link du Jour
       .panel-body
         = @profile.try(:link)
   .col-md-1
+
+
