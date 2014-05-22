@@ -1,5 +1,5 @@
 - classname = message.classname_for_user(current_user)
-%tr{class: classname}
+%tr{class: classname, id: "message_#{message.id}"}
   %td{class: classname}
     = link_to message.sender.name, profile_path(message.sender)
   %td{class: classname}

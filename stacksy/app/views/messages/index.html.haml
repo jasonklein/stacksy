@@ -1,10 +1,11 @@
+
 %h2 Messages
 
 %br
-%form{class: 'form-inline'}
+%form{id: 'q_search', class: 'form-inline'}
   .form-group
-    = search_form_for @q, url: user_messages_path(current_user) do |f|
-      = f.search_field :content_cont, class: 'form-control', placeholder: "Search for messages by content"
+    = search_form_for @q, url: user_messages_path(current_user), method: :post do |f|
+      = f.search_field :content_cont, class: 'form-control', placeholder: "Search for messages by content", autofocus: true
       = f.submit class: "btn btn-warning"
 %br
 .table-responsive
@@ -18,4 +19,6 @@
         %th.col-md-2 Action
     %tbody
       = render @messages
-        
+
+
+

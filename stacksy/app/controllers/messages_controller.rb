@@ -9,6 +9,12 @@ class MessagesController < ApplicationController
     @q = current_user.messages.search(params[:q])
     @messages = @q.result(distinct: true)
 
+    respond_to do |format|
+      format.js
+      format.html # index.html.erb
+      format.json { render json: @messages }
+    end
+
     
   end
 
