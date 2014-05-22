@@ -21,6 +21,7 @@ end
 get '/users/:id/search', to: 'users#search', as: 'user_search'
 get '/users/:id/home', to: 'users#home', as: 'user_home'
 get '/users/:id/sign_up_1', to: 'users#gender_zipcode', as: 'user_gender_zipcode_sign_up'
+get '/users/:id/sign_up_2', to: 'users#gender_interests', as: 'user_gender_interests_sign_up'
 get '/users/:id/membership', to: 'users#membership', as: 'user_membership'
 get '/users/:id/profile', to: 'profiles#show', as: 'profile'
 post '/users/messages/:recipient_id', to: 'messages#create', as: 'create_message'

@@ -1,16 +1,17 @@
   
 = form_for @user, url: {action: "update"} do |f|
   %p What gender are you?
-  -Gender.all.each do |gender|
+  -@genders.each do |gender|
     = f.radio_button :gender_id, gender.id
     = f.label gender.title 
   %br
-  / %p Who are you looking for?
-  / - Gender.all.each do |gender|
-  /   = f.check_box :gender_interested_in, gender.id, @user.gender_interest_ids.include?(gender.id)
-  /   = f.label gender.title
-  / %br
+  %p Who are you looking for?
+  - @genders.each do |gender|
+    = check_box_tag 'user[gender_interest_ids][]', gender.id, @user.gender_interest_ids.include?(gender.id)
+    = label_tag gender.title
+  %br
   %p Zip Code
   = f.text_field :zipcode
   %br
   = f.submit
+
