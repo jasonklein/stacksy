@@ -12,7 +12,6 @@ end
 
 resources :users do
   resources :blocks
-  resources :favorites
   resources :messages
   resources :pings
   resources :profiles
