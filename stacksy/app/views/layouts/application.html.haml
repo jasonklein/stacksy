@@ -11,25 +11,13 @@
     %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"}
     %script{src: "http://code.jquery.com/ui/1.10.3/jquery-ui.js"}
   %body
-    #fb-root
-      :javascript
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=248578952014298&version=v2.0";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
     .container-fluid
       .row
-        -if current_user  
-          .col-md-2        
-            = raw(stacksy_logo(large_dimensions)) 
-            %p.special
-              Pancake designed by Jacob Halton from
-              %a{href: "http://www.thenounproject.com", target: "_blank"} the Noun Projectcollection.
-
+        .col-md-2        
+          = raw(stacksy_logo(large_dimensions)) 
+          %p.special
+            Pancake designed by Jacob Halton from
+            %a{href: "http://www.thenounproject.com", target: "_blank"} the Noun Project collection.
         .col-md-8
           %header
             %p.notice
@@ -40,33 +28,29 @@
               %h1 Stacksy
               #js-alert
             = yield
+        .col-md-2
+          %ul.nav.nav-pills.nav-stacked
+            %li
+              %h3
+                = link_to image_tag(current_user.profile.image_1, class: "circular_large"), profile_path(current_user)
+                %br
+                = link_to current_user.name, profile_path(current_user)
+                %br
+                = link_to "Membership", user_membership_path(current_user)
+                %br
+                = link_to "Log Out", destroy_user_session_path, method: :delete
 
-        -if current_user
-          .col-md-2
-            %ul.nav.nav-pills.nav-stacked
-              %li
-                %h3
-                  = link_to image_tag(current_user.profile.image_1, class: "circular_large"), profile_path(current_user)
-                  %br
-                  = link_to current_user.name, profile_path(current_user)
-                  %br
-                  = link_to "Membership", user_membership_path(current_user)
-                  %br
-                  = link_to "Log Out", destroy_user_session_path, method: :delete
-
-              %li#menu_item_home
-                = link_to 'Home', home_page_based_on_role, class: '.btn btn-butter'
-              %li#menu_item_search
-                = link_to 'Search', user_search_path(current_user), class: '.btn btn-butter'
-              %li#menu_item_messages
-                = link_to 'Messages', user_messages_path(current_user), class: '.btn btn-butter'
-              %li#menu_item_pings
-                = link_to 'Pings', user_pings_path(current_user), class: '.btn btn-butter'
-              %li#menu_item_favorites
-                = link_to 'Favorites', user_favorites_path(current_user), class: '.btn btn-butter'
-              %li#menu_item_tracker
-                = link_to 'Tracker', tracker_index_path(current_user), class: '.btn btn-butter'
-              %li#menu_item_tracked
-                = link_to 'Tracked', tracked_index_path(current_user), class: '.btn btn-butter'
-              %li#menu_item_blocks
-                = link_to 'Blocks', user_blocks_path(current_user), class: '.btn btn-butter'
+            %li#menu_item_home
+              = link_to 'Home', home_page_based_on_role, class: '.btn btn-butter'
+            %li#menu_item_search
+              = link_to 'Search', user_search_path(current_user), class: '.btn btn-butter'
+            %li#menu_item_messages
+              = link_to 'Messages', user_messages_path(current_user), class: '.btn btn-butter'
+            %li#menu_item_pings
+              = link_to 'Pings', user_pings_path(current_user), class: '.btn btn-butter'
+            %li#menu_item_tracker
+              = link_to 'Tracker', tracker_index_path(current_user), class: '.btn btn-butter'
+            %li#menu_item_tracked
+              = link_to 'Tracked', tracked_index_path(current_user), class: '.btn btn-butter'
+            %li#menu_item_blocks
+              = link_to 'Blocks', user_blocks_path(current_user), class: '.btn btn-butter'

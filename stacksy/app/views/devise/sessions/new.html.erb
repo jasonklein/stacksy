@@ -1,12 +1,8 @@
-
-<div id="sign_in_content">
 <h1 id="sign_in_title">Stacksy</h1>
 <h2 id="sign_in_subtitle">
-  <span class='jq-syntax-char'>$</span>(<span class='jq-syntax'>'#you'</span>).on(your, pourSomeSyntacticSugar([love, dating, romantic, social]) { <span class='jq-syntax-char'>$</span>.each(<span class='jq-syntax-char'>!</span><span class="jq-syntax">function</span>(life) { <span class='jq-syntax-char'>return</span> <%= raw(stacksy_logo(icon_dimensions))%>; });});
+  $<span class='jq-regular'>(</span><span class='jq-special'>'#you'</span><span class='jq-regular'>).on(</span>your<span class='jq-regular'>, pourSomeSyntacticSugar([</span>love<span class='jq-regular'>,</span> dating<span class='jq-regular'>,</span> romantic<span class='jq-regular'>,</span> social<span class='jq-regular'>]) { </span>$<span class='jq-regular'>.each(</span>!<span class="jq-function">function</span><span class='jq-regular'>(</span>life<span class='jq-regular'>) {</span> return <%= raw(stacksy_logo(icon_dimensions))%> <span class='jq-regular'>; });});</span>
 </h2>
-
 <%= render "devise/shared/links" %>
-<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="false"></div>
-
+<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="false">
 </div>
 

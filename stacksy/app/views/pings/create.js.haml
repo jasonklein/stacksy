@@ -1,7 +1,6 @@
 - if @ping.persisted?
-  var alertHtml = "Ping sent to #{escape_javascript(@ping.pinged.name)}. Sweet!"
+  var alertHtml = "Ping!"
 - else
   var alertHtml = "Ping not sent. #{escape_javascript(@ping.errors.full_messages.join(", "))}. Not sweet.<br>Please try again--love waits for no person!"
 
-/ $('#js-alert').addClass('highlight').html(alertHtml).delay(3000).fadeOut("slow", function() { $('#js-alert').html("").css('display', 'block'); });
-/ $('.sent-message').slideUp(1000, function(){ $(this).removeClass('sent-message'); });
+$('#js-alert').html(alertHtml).delay(3000).fadeOut("slow", function() { $('#js-alert').html("").css('display', 'block'); });

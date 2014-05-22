@@ -1,0 +1,17 @@
+- classname = message.classname_for_user(current_user)
+%tr{class: classname}
+  %td{class: classname}
+    = link_to message.sender.name, profile_path(message.sender)
+  %td{class: classname}
+    = link_to message.recipient.name, profile_path(message.recipient)
+  %td{class: classname}
+    = message.date
+  %td{class: classname}
+    = message.content
+    - if message.recipient_is_current_user?(current_user)
+      = render partial: 'reply', locals: {recipient: message.sender}
+    - else
+      = render partial: 'reply', locals: {recipient: message.recipient}
+  %td{class: classname}
+    .message-button.btn.btn-success Reply       
+    = link_to "Delete", delete_message_path(current_user, message), method: :delete, class: "btn btn-info"

@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(:version => 20140521221527) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "favorites", :force => true do |t|
-    t.integer  "favoriter_id"
-    t.integer  "favorited_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "genders", :force => true do |t|
     t.string   "title",      :default => "custom", :null => false
     t.datetime "created_at",                       :null => false

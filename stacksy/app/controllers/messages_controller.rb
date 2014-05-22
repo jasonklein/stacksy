@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   authorize_resource :user 
   authorize_resource :message, through: :user
+  
   def index
     @messages = current_user.messages
   end
@@ -20,6 +21,9 @@ class MessagesController < ApplicationController
     @message.recipient_id = params[:recipient_id]
     @message.sender_id = current_user.id
 
+
+    @messages = current_user.messages
+
     respond_to do |format|
       if @message.save
         format.js 
@@ -32,6 +36,16 @@ class MessagesController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @message = Message.find(params[:id])
+
+    @message.toggle_readability_or_destroy(current_user)
+
+    redirect_to user_messages_path(current_user), notice: "Message deleted."
+  end
+
+
 
   
 

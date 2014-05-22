@@ -14,16 +14,21 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(function() {
-  $('.message').children('.message-box').hide();
+
+var StacksyApp = StacksyApp || {};
+
+StacksyApp.setup = function() {
+  $('.message-button').unbind('click');
+  $('.message-box').hide();
   $('.message-button').click(function(){
-    $(this).siblings().slideToggle();
+    $(this).parent().children('.message-box').slideToggle();
   });
-  $('.send-button').click(function() {
-    $(this).parent().addClass('sent-message');
+  $('.message-button').click(function(){
+    $(this).parents('tr').children('td:nth-child(4)').children('.message-box').slideToggle();
   });
-});
+  
+}
 
 
-
+$(StacksyApp.setup);
 

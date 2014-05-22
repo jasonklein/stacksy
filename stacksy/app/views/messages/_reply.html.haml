@@ -1,0 +1,7 @@
+.message-box
+  = form_tag create_message_path(recipient_id: recipient.id), remote: true do
+    = fields_for :message do |i|
+      %br
+      = i.text_area :content, cols: '40', rows: '5'
+    %br
+    = submit_tag "Send", class: 'send-button btn btn-success'

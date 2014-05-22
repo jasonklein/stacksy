@@ -58,5 +58,10 @@ module Stacksy
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #Set the layout for the Devise Sessions Controller
+    config.to_prepare do
+      Devise::SessionsController.layout "layout_for_sessions_controller" 
+    end
   end
 end

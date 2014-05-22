@@ -4,20 +4,19 @@ html, body {
   height: 100%;
 }
 
-#sign_in_content{
-  /*background-image:url("pancakesyrup.jpg");
-  background-repeat: no-repeat;
-  background-position: center 100px;
-  background-size: 100% auto;*/
-}
+
 
 #sign_in_subtitle{
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   margin-bottom: 0px;
   margin-top: 50px;
-  padding-left: 30px;
-  padding-right: 30px;
+  /*padding-left: 30px;
+  padding-right: 30px;*/
   text-align: left;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .btn {
@@ -31,7 +30,6 @@ html, body {
 
 .container-fluid, .row, .col-md-2, .col-md-8 {
   height: 100%;
-  //width: 100%;
 }
 
 body > .container-fluid > .row > .col-md-2, body > .container-fluid > .row > .col-md-8 {
@@ -47,14 +45,12 @@ header{
 }
 
 #js-alert {
-  margin-top: 20px;
-  margin-bottom: 50px;
+  width: 300px;
+  margin: 30px auto 50px auto;
+  font-family: 'Pacifico', cursive;
+  font-size: 25px;
 }
 
-#js-alert.hightlight {
-  background-color: red;
-  font-family: 'Pacifico', cursive; 
-}
 
 a:hover#facebook_log_in_button{
   cursor: pointer;
@@ -92,23 +88,32 @@ a:hover#facebook_log_in_button{
 h1 {
   font-size: 150px;
   font-family: 'Pacifico', cursive;
+  margin-bottom: 80px;
 }
 
 h1, h2 {
-  color: #FF6000;
-  
+  color: #FF6000; 
 }
 
-h3 {
+h3, #js-alert {
   color: #4073FF;
 }
 
-.jq-syntax-char {
+.jq-regular {
   color: #4073FF;
 }
 
-.jq-syntax {
-  color: #FF0D70;
+.jq-function {
+  color: #5CB85C;
+  font-style: italic;
+}
+
+.jq-special {
+  color: #FF5C97;
+}
+
+.user-display {
+  width: 600px;
 }
 
 .col-md-8 {
@@ -133,11 +138,13 @@ table {
   text-align: left;
 }
 
-.col-md-8.col-md-2 {
-  background-color: red;
+td.message-box {
+  height: 200px;
 }
 
-
+.message-button, .ping-button {
+  display: inline;
+}
 
 
 

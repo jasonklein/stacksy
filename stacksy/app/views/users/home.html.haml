@@ -1,25 +1,27 @@
 #news_feed
   -@users.each do |user|
-    = link_to image_tag(user.profile.image_1, class: "circular_small"), profile_path(user)
-    = link_to user.name, profile_path(user)
-    = user.gender.title
-    = user.location
-    / = user.age
-    .message
-      .message-button.btn.btn-success Message
-      .message-box
-        = form_tag create_message_path(recipient_id: user.id), id: 'message-content-' + user.id.to_s, remote: true do
-          = fields_for :message do |i|
-            %br
-            = i.text_area :content, cols: '50', rows: '5'
-          %br
-          = submit_tag "Send", class: 'send-button btn btn-success'
-    .ping
-      /.ping-button.btn.btn-success Ping
-      .ping-box
-        / = button_tag create_ping_path(pinged_id: user.id), remote: true
-        = form_tag create_ping_path(pinged_id: user.id), remote: true do
-          =submit_tag "Ping", class: 'btn btn-success'
+    .user-display.center-block
+      .text-left
+        = link_to image_tag(user.profile.image_1, class: "circular_small"), profile_path(user)
+        = link_to user.name, profile_path(user)
+        = user.gender.title
+        = user.location
+        = user.age
+      .text-right
+        .communication
+          .ping-button       
+            = link_to "Ping", create_ping_path(pinged_id: user.id), method: :post, remote: true, class: 'btn btn-warning'
+          .message-button
+            = link_to "Message", 'javascript:;', class: 'btn btn-success'
+            // Message button made a link so as to be sized similarly to ping button.
+          .message-box
+            = form_tag create_message_path(recipient_id: user.id), remote: true do
+              = fields_for :message do |i|
+                %br
+                = i.text_area :content, cols: '50', rows: '5'
+              %br
+              = submit_tag "Send", class: 'send-button btn btn-success'
+      
     %br
 
 
