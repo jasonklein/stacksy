@@ -3,8 +3,13 @@ class MessagesController < ApplicationController
   authorize_resource :message, through: :user
   
   def index
+
     current_user.mark_unviewed_messages_viewed
-    @messages = current_user.messages
+
+    @q = current_user.messages.search(params[:q])
+    @messages = @q.result(distinct: true)
+
+    
   end
 
   def new

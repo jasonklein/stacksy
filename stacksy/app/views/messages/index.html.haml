@@ -1,5 +1,12 @@
 %h2 Messages
 
+%br
+%form{class: 'form-inline'}
+  .form-group
+    = search_form_for @q, url: user_messages_path(current_user) do |f|
+      = f.search_field :content_cont, class: 'form-control', placeholder: "Search for messages by content"
+      = f.submit class: "btn btn-warning"
+%br
 .table-responsive
   %table.table.table-hover
     %thead
