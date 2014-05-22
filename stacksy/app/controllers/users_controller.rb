@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def home
-    @users = User.without_user(current_user)   
+    @users = User.without_user(current_user)  
+    @users.people_who_would_be_interested_in_me(current_user)
+    @users.people_i_would_be_interested_in(current_user) 
   end
 
   def search
@@ -82,7 +84,19 @@ def reverse_age(min_age, max_age)
   params[:q][:birthday_lteq] = max_now.change(:year => max_now.year - min_age)
 end
 
-private
+  # private
+  # helper_method :people_who_would_be_interested_in_me
+  # def people_who_would_be_interested_in_me
+  #     matches = []
+  #     User.all.each do |user|
+  #       if user.gender_interest_ids.include(current_user.gender_id)
+  #         matches << user
+  #       end
+  #     end
+  #     matches
+  #   end
+
+  private
   helper_method :membership_status
   def membership_status
     if current_user.role == "basic"

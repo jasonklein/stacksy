@@ -90,7 +90,17 @@ class User < ActiveRecord::Base
     zipcode + " " + location
   end
   
-scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
+  scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
+
+  scope :people_who_would_be_interested_in_me, lambda {|current_user| select{|user| user.gender_interest_ids.include? current_user.gender_id}}
+
+  # scope :people_i_would_be_interested_in, lambda { where(current_user.gender_interest_ids.include? :gender_id)}
+
+  scope :people_i_would_be_interested_in, lambda {|current_user| where(current_user.gender_interest_ids.include? :gender_id)}
+
+  
+
+
   
 end
 
