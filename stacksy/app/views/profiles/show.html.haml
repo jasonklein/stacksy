@@ -1,5 +1,5 @@
 .row
-  .col-md-4
+  .col-md-3
     - if @profile.images.any?
       - @profile.images.each do |image|
         = image_tag(image)
@@ -16,42 +16,52 @@
         = @user.location 
       %h4
         = "#{@user.gender.title.capitalize}, #{@user.age}"
+      = @profile.quip.try
     
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Tech Talk
       .panel-body
         %h4 Industry
+        %p
+          = @profile.industry.try
         %h4 Occupation
+        %p
+          = @profile.occupation.try
         %h4 Why tech?
+        %p
+          = @profile.why_tech.try
         %h4 Stack (if applicable)
+        %p
+          = @profile.stack.try
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Favorite Characters
       .panel-body
+        = @profile.fav_characters.try
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Local Spots
       .panel-body
+        = @profile.fav_spots.try
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Favorite Places (in this or any other dimension)
       .panel-body
+        = @profile.fav_places.try
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Guilty Pleasure
       .panel-body
+        = @profile.guilty_pleasure.try
 
     .panel.panel-primary
       .panel-heading
         %h3.panel-title Link you should get
       .panel-body
-
-    .panel.panel-primary
-      .panel-heading
-        %h3.panel-title Quip
-      .panel-body
+        = @profile.link.try
+  .col-md-1

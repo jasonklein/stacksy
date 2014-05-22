@@ -30,6 +30,10 @@ a:hover {
   height: 100%;
 }
 
+.container-fluid {
+  margin-bottom: 200px;
+}
+
 body > .container-fluid > .row > .col-md-2, body > .container-fluid > .row > .col-md-8 {
   padding-top: 30px;
 }
@@ -222,5 +226,8 @@ label{
 
 h3.panel-title {
   font-size: 20px;
+}
 
+.form-control {
+  margin: 5px;
 }
