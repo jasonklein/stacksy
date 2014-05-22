@@ -18,8 +18,6 @@ class User < ActiveRecord::Base
 
   has_many :sent_pings, class_name: 'Ping', foreign_key: "pinger_id", dependent: :destroy
   has_many :received_pings, class_name: 'Ping', foreign_key: "pinged_id", dependent: :destroy
-
-  has_many :favorites, foreign_key: "favoriter_id", dependent: :destroy
   
   has_many :sent_blocks, class_name: 'Block', foreign_key: "blocker_id", dependent: :destroy
   has_many :received_blocks, class_name: 'Block', foreign_key: "blocked_id", dependent: :destroy
