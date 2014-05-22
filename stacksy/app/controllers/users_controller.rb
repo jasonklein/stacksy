@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
     @q = User.ransack(params[:q])
     @users = @q.result
-  
   end
 
   def gender_zipcode

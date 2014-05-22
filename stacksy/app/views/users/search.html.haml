@@ -5,7 +5,7 @@
   = f.select :gender_title_eq, options_from_collection_for_select(Gender.all, "title", "title"), include_blank: true
   %br
   %p Age Range
-  %input#amount
+  %input#amount{readonly: true}
   #slider
   = f.hidden_field :birthday_lteq
   = f.hidden_field :birthday_gteq
