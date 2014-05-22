@@ -28,10 +28,6 @@ class UsersController < ApplicationController
     @genders = Gender.all
   end
 
-  def gender_interest
-    @user = current_user
-  end
-
   def update
     @user = User.find(params[:id])
     # FIX ROUTE
@@ -56,13 +52,6 @@ end
 def membership
   @user = current_user
 end
-
-
-
-
-
-
-
 
 
 def age
@@ -93,9 +82,6 @@ private
       "Premium"
     end
   end
-
-
-
 end
 
 
