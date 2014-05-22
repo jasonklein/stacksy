@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
 
-  authorize_resource  
+  authorize_resource
+    
   def show
     @profile = Profile.find(params[:id])
     @user = @profile.user

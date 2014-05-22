@@ -1,4 +1,6 @@
 class PingsController < ApplicationController
+
+  authorize_resource
   
   def index
     current_user.mark_unviewed_pings_viewed

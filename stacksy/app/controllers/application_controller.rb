@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, notice: "Nope!"
+    redirect_to user_home_path(current_user), notice: "Nope!"
   end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    redirect_to root_url, notice: "Whoops! That record cannot be found."
+    redirect_to user_home_path(current_user), notice: "Whoops! That record does not appear to exist."
   end
 
   
