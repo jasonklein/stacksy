@@ -29,13 +29,6 @@ StacksyApp.setup = function() {
   
 }
 
-$('#you').on(your, pourSomeSyntacticSugar([love, dating, romantic, social]) {
-   $.each(function(i, life!) {
-       return 😃 ;
-    }...
-
-
-
 
 $(StacksyApp.setup);
 
