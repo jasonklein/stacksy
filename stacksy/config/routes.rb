@@ -1,9 +1,6 @@
 Stacksy::Application.routes.draw do
 
-  get "tracks/tracker_index"
-
-  get "tracks/tracked_index"
-
+ 
 devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
 resources :users do
@@ -17,6 +14,7 @@ resources :users do
   resources :profiles
 end
 
+get '/users/:id/profile/edit', to: 'profiles#edit', as: 'edit_profile'
 get '/users/:id/search', to: 'users#search', as: 'user_search'
 get '/users/:id/home', to: 'users#home', as: 'user_home'
 get '/users/:id/sign_up_1', to: 'users#gender_zipcode', as: 'user_gender_zipcode_sign_up'
