@@ -5,12 +5,13 @@
 #membership-line Chose Your Membership Plan
 
 #payment_options
-  = form_for @user do |f|
-    = f.label("Basic")
-    = f.radio_button(:role, "basic")
-    = f.label("Premium")
-    = f.radio_button(:role, "paid")
-    = f.submit("Ok")
+  .form
+    = form_for @user do |f|
+      = f.label("Basic")
+      = f.radio_button(:role, "basic")
+      = f.label("Premium")
+      = f.radio_button(:role, "paid")
+      = f.submit("Ok") class: "btn btn-warning"
 
 
 
