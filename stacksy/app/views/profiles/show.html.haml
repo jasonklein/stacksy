@@ -1,15 +1,90 @@
+.row
+  .col-md-4
+    - if @profile.images.any?
+      - @profile.images.each do |image|
+        = image_tag(image, class: 'circular_large')
+    %br
+    %br
+    .ping-button       
+      = link_to "Ping", create_ping_path(pinged_id: @user.id), method: :post, remote: true, class: 'btn btn-warning'
+    .message-button
+      = link_to "Message", 'javascript:;', class: 'btn btn-success'
+      // Message button made a link so as to be sized similarly to ping button.
+    .message-box
+      = form_tag create_message_path(recipient_id: @user.id), remote: true do
+        = fields_for :message do |i|
+          %br
+          = i.text_area :content, cols: '50', rows: '5'
+        %br
+        = submit_tag "Send", class: 'send-button btn btn-success'
+  .col-md-1
 
-Profile Show
+  .col-md-6.text-left
+    %h2
+      = @user.name
+      - if can? :update, @user
+        = link_to "Edit", edit_user_profile_path(@user, @profile), class: 'btn btn-success'
 
-.profile_image
-  =image_tag @user.profile.image_1
+    .basic_info
+      %h4
+        = @user.location 
+      %h4
+        = "#{@user.gender.title.capitalize}, #{@user.age}"
+      .quip
+        = @profile.try(:quip)
+      - if @user.gender_interests.any?
+        %h4
+          Looking for: 
+          - @user.gender_interests.each do |interest|
+            = interest.gender.title.capitalize
+      %br
+      %br 
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Tech Talk
+      .panel-body
+        %h4 Industry
+        %p
+          = @profile.try(:industry)
+        %h4 Occupation
+        %p
+          = @profile.try(:occupation)
+        %h4 Why tech?
+        %p
+          = @profile.try(:why_tech)
+        %h4 Stack (if applicable)
+        %p
+          = @profile.try(:stack)
 
-%h2=@user.name
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Favorite Characters
+      .panel-body
+        = @profile.try(:fav_characters)
 
-.basic_info
-  =@user.location 
-  %br
-  =@user.gender.title 
-  %br
-  =@user.age 
-  %br
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Local Spots
+      .panel-body
+        = @profile.try(:fav_spots)
+
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Favorite Places (in this or any other dimension)
+      .panel-body
+        = @profile.try(:fav_places)
+
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Guilty Pleasure
+      .panel-body
+        = @profile.try(:guilty_pleasure)
+
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title Link du Jour
+      .panel-body
+        = @profile.try(:link)
+  .col-md-1
+
+

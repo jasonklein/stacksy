@@ -30,6 +30,10 @@ a:hover {
   height: 100%;
 }
 
+.container-fluid {
+  margin-bottom: 200px;
+}
+
 body > .container-fluid > .row > .col-md-2, body > .container-fluid > .row > .col-md-8 {
   padding-top: 30px;
 }
@@ -86,19 +90,17 @@ a:hover#facebook_log_in_button{
 h1 {
   font-size: 150px;
   font-family: 'Pacifico', cursive;
-
+  color: #FF6000;
+  margin-bottom: 70px;
 }
 
-h1 {
-  color: #FF6000; 
-}
-
-h2{
+h2 {
   color: #4073FF;
   font-family: 'HelveticaNeue-Light'
 }
 
-h3, #js-alert {
+
+h3, #js-alert, .alert, .notice {
   color: #4073FF;
 }
 
@@ -147,7 +149,10 @@ td.message-box {
 
 .message-button, .ping-button {
   display: inline;
+
+
 }
+
 
 .search_results{
   margin-top: 50px;
@@ -226,9 +231,19 @@ label{
     -ms-transition: all .3s ease-in-out
   }
 
+
 #sign-up-submit{
   margin-top: 20px;
 }
 
+h3.panel-title {
+  font-size: 20px;
+}
 
+.form-control {
+  margin: 5px;
+}
 
+.quip {
+  font-style: italic;
+}

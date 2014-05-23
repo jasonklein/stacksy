@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
-  authorize_resource :user 
+
+  authorize_resource :user
   authorize_resource :message, through: :user
   
   def index
-
     current_user.mark_unviewed_messages_viewed
 
     @q = current_user.messages.search(params[:q])
@@ -13,9 +13,7 @@ class MessagesController < ApplicationController
       format.js
       format.html # index.html.erb
       format.json { render json: @messages }
-    end
-
-    
+    end 
   end
 
   def new

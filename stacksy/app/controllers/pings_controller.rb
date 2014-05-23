@@ -1,4 +1,7 @@
 class PingsController < ApplicationController
+
+  authorize_resource :user
+  authorize_resource :ping, through: :user
   
   def index
     current_user.mark_unviewed_pings_viewed

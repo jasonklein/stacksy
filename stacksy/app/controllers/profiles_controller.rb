@@ -1,17 +1,27 @@
 class ProfilesController < ApplicationController
- 
+
+  
   def show
-    @profile = Profile.find(params[:id])
-    @user = @profile.user
-    if @profile.user != current_user
+    @user = User.find(params[:id])
+    @profile = @user.profile
+    if @user != current_user
       @profile.add_track(current_user)
     end
   end
 
   def edit
+    @user = User.find(params[:id])
+    @profile = @user.profile
+     
   end
 
   def update
+    @profile = Profile.find(params[:id])
+    if @profile.update_attributes(params[:profile])
+      redirect_to profile_path(current_user), notice: "Updated."
+    else
+      render 'edit'
+    end
   end
 
 end

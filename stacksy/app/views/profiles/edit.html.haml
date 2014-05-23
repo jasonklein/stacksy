@@ -1,1 +1,20 @@
-Edit Profile Page
+%h2 Update Your Profile
+.form-inline
+  = form_for ([@user, @profile]) do |f|
+    = f.select :industry, options_for_select(["Tech", "Analytics", "Design", "Web Development", "Digital Media", "Gaming", "IT Support", "Mobile Development", "Telecoms", "Other"]), class: 'form-control'
+    = f.text_field :occupation, placeholder: "What's your job?", class: 'form-control'
+    %br
+    = f.text_area :why_tech, class: 'form-control', placeholder: 'What got you into tech?', rows: '5', rows: '5'
+    = f.text_area :stack, class: 'form-control', placeholder: "What's your stack?", rows: '5'
+    = f.text_area :fav_characters, class: 'form-control', placeholder: 'Any favorite characters from books, TV, comics, films, music, games or other media?', rows: '5'
+    = f.text_area :fav_spots, class: 'form-control', placeholder: 'Name some of your local haunts.', rows: '5'
+    = f.text_area :fav_places, class: 'form-control', placeholder: 'Name some of your favorite places, in this or any other dimension.', rows: '5'
+    = f.text_area :guilty_pleasure, class: 'form-control', placeholder: "Guilty pleasures are like belly-buttons, everybody's got one...", rows: '5'
+    .col-md-6
+      = f.text_field :quip, class: 'form-control', placeholder: "Status update? (Like Facebook...)", size: '60'
+    .col-md-6
+      = f.text_field :link, class: 'form-control', placeholder: "Link du jour", rows: '5', size: '60'
+    = f.submit class: 'btn btn-success'
+
+
+  

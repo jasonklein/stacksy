@@ -1,36 +1,35 @@
 Stacksy::Application.routes.draw do
 
-  get "tracks/tracker_index"
+ 
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
-  get "tracks/tracked_index"
+  resources :users do
+    # collection {post :search, to: 'users#search'}
+  end
 
-devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  resources :users do
+    resources :blocks
+    resources :messages
+    resources :pings
+    resources :profiles
+  end
 
-resources :users do
-  # collection {post :search, to: 'users#search'}
-end
-
-resources :users do
-  resources :blocks
-  resources :messages
-  resources :pings
-  resources :profiles
-end
-
-get '/users/:id/search', to: 'users#search', as: 'user_search'
-get '/users/:id/home', to: 'users#home', as: 'user_home'
-get '/users/:id/sign_up_1', to: 'users#gender_zipcode', as: 'user_gender_zipcode_sign_up'
-get '/users/:id/sign_up_2', to: 'users#gender_interests', as: 'user_gender_interests_sign_up'
-get '/users/:id/membership', to: 'users#membership', as: 'user_membership'
-get '/users/:id/profile', to: 'profiles#show', as: 'profile'
-post '/users/messages/:recipient_id', to: 'messages#create', as: 'create_message'
-post '/users/:pinged_id/pings', to: 'pings#create', as: 'create_ping'
-get '/users/:id/tracker_index', to: 'tracks#tracker_index', as: 'tracker_index'
-get '/users/:id/tracked_index', to: 'tracks#tracked_index', as: 'tracked_index'
-post '/users/:user_id/messages/:id', to: 'messages#destroy', as: 'delete_message'
-devise_scope :user do
-  root :to => "devise/sessions#new"
-end
+  get '/users/:id/profile/edit', to: 'profiles#edit', as: 'edit_profile'
+  post '/users/:id/profile/edit', to: 'profiles#update', as: 'update_profile'
+  get '/users/:id/search', to: 'users#search', as: 'user_search'
+  get '/users/:id/home', to: 'users#home', as: 'user_home'
+  get '/users/:id/sign_up_1', to: 'users#gender_zipcode', as: 'user_gender_zipcode_sign_up'
+  get '/users/:id/sign_up_2', to: 'users#gender_interests', as: 'user_gender_interests_sign_up'
+  get '/users/:id/membership', to: 'users#membership', as: 'user_membership'
+  get '/users/:id/profile', to: 'profiles#show', as: 'profile'
+  post '/users/messages/:recipient_id', to: 'messages#create', as: 'create_message'
+  post '/users/:pinged_id/pings', to: 'pings#create', as: 'create_ping'
+  get '/users/:id/tracker_index', to: 'tracks#tracker_index', as: 'tracker_index'
+  get '/users/:id/tracked_index', to: 'tracks#tracked_index', as: 'tracked_index'
+  post '/users/:user_id/messages/:id', to: 'messages#destroy', as: 'delete_message'
+  devise_scope :user do
+    root :to => "devise/sessions#new"
+  end
 
 
 
