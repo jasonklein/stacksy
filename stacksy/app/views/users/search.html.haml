@@ -32,9 +32,6 @@
             .communication
               .ping-button       
                 = link_to "Ping", create_ping_path(pinged_id: user.id), method: :post, remote: true, class: 'btn btn-warning'
-              .message-button
-                = link_to "Message", 'javascript:;', class: 'btn btn-success'
-              // Message button made a link so as to be sized similarly to ping button.
             .message-box
               = form_tag create_message_path(recipient_id: user.id), remote: true do
                 = fields_for :message do |i|
