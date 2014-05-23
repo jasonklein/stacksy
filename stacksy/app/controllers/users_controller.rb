@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   def home
     @users = User.without_user(current_user)  
     @users = (@users.people_who_would_be_interested_in_me(current_user) & @users.people_i_would_be_interested_in(current_user))
+    # raise
+
   end
 
   def search
