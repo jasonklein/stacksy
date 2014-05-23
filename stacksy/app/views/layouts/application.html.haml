@@ -10,6 +10,7 @@
     %script{src: "http://code.jquery.com/ui/1.10.3/jquery-ui.js"}
     = csrf_meta_tags
   %body
+    #ebtf
     .container-fluid
       .row
         .col-md-2        
@@ -29,14 +30,14 @@
         .col-md-2
           %ul.nav.nav-pills.nav-stacked
             %li
-              %h3
-                = link_to image_tag(current_user.profile.image_1, class: "circular_large"), profile_path(current_user)
+              %h3.sidebar-user-info
+                = link_to image_tag(current_user.profile.image_1, class: "circular_large home_page_user_photo"), profile_path(current_user)
                 %br
-                = link_to current_user.name, profile_path(current_user)
+                %b= link_to current_user.name, profile_path(current_user), :class => "sidebar-sub-user-name"
                 %br
-                = link_to "Membership", user_membership_path(current_user)
+                = link_to "Membership", user_membership_path(current_user), :class => "sidebar-sub-user-info"
                 %br
-                = link_to "Log Out", destroy_user_session_path, method: :delete
+                = link_to "Log Out", destroy_user_session_path, method: :delete, :class => "sidebar-sub-user-info"
             %li#menu_item_home
               = link_to 'Home', home_page_based_on_role, class: 'btn btn-butter'
             %li#menu_item_search
@@ -61,3 +62,4 @@
           %br
           %br
           = image_tag('tech_ad.gif')
+
