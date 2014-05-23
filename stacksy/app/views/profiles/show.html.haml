@@ -37,8 +37,11 @@
       - if @user.gender_interests.any?
         %h4
           Looking for: 
-          - @user.gender_interests.each do |interest|
-            = interest.gender.title.capitalize
+          - if @user.gender_interests.any?
+            - array = []
+            -@user.gender_interests.map do |gender| 
+              - array << gender.title.capitalize
+            = array.join(", ")
       %br
       %br 
     .panel.panel-primary
