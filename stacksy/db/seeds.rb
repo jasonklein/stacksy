@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 genders = Gender.create([
-  { title: 'male' },
-  { title: 'female' },
-  { title: 'mtf' },
-  { title: 'ftm' },
-  { title: 'custom' },
+  { title: 'Male' },
+  { title: 'Female' },
+  { title: 'MTF' },
+  { title: 'FTM' },
+  { title: 'Custom' },
   ])

@@ -5,7 +5,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user = User.from_omniauth(data)
     if user.persisted?
       if !user.profile
-        user_profile = Profile.new(image_1: data.info.image, fb_interests: data.info.interests, user_id: user.id)
+        user_profile = Profile.new(fb_interests: data.info.interests, user_id: user.id)
+        user_profile.image_1 = user.set_user_image(data.info.image)
         user_profile.save
       end
 

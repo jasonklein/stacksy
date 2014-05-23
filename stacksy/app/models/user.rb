@@ -35,7 +35,29 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :received_messages
 
 
-  def self.from_omniauth(data)     
+  ### For Facebook Test Users profile images
+
+  def men
+    ["http://www.india-forums.com/images/celebrity/m_10046.jpg", "http://ezinearticles.com/members/mem_pics/Mike-Budhani_1276433.jpg", "http://www.hairstylesdb.com/wp-content/uploads/2014/04/short-hairstyles-for-asian-guy-150x150.jpg", "http://www.hairstyle-medium.com/wp-content/uploads/2014/02/asian-men-short-hairstyle-772-150x150.jpg", "http://www.cruzine.com/wp-content/uploads/2012/03/008-bw-portrait-photography-150x150.jpg", "http://blackhaircuts2014.com/wp-content/uploads/2013/10/hairstyles-for-thick-hair-men-2013-150x150.jpg", "http://www.lifenfashion.com/wp-content/uploads/2014/05/Top-Actor-and-Model-Azfar-Rehman-Biography-9-150x150.jpg", "http://thenordiccountries.com/wp-content/uploads/2012/12/The-Nordic-Countries-Norwegian-actor-Aksel-Hennie-150x150.jpeg"]
+  end
+
+  def women
+    ["http://www.moviepics99.com/wp-content/uploads/2014/04/Cute-Smiling-Shraddha-Kapoor-in-Aashiqui-2-wallpapers-150x150.jpg", "http://i2.wp.com/www.moviepics99.com/wp-content/uploads/2014/04/Nagababu-daughter-tollywood-entry-150x150.jpg?resize=150%2C150", "http://www.minorityperspective.co.uk/wp-content/uploads/2010/05/SHABANA-CUT-OUT-150x150.jpg", "http://leadsupport.net/wp-content/uploads/2014/05/asian-female-1-150x150.jpg", "http://www.djssa.com/wp-content/uploads/2013/08/BOITUMELO-MAOHUNYE-3-150x150.jpg", "http://www.talkingdrum-entertainment.com/wp-content/uploads/2014/01/Ava-DuVernay1-150x150.jpg", "http://3i26kd3p1usa3cefqi1ay96t13o6.wpengine.netdna-cdn.com/wp-content/uploads/2013/12/bresha-webb1-150x150.jpg", "http://www.michaelwharley.com/wp-content/uploads/2012/12/headshot-headshots-actor-headshots-actors-headshots-london-michael-wharely-156-150x150.jpg", "http://www.wharleywords.co.uk/wp-content/uploads/2013/02/headshot-headshots-actor-headshots-actors-headshots-london-michael-wharely-175-150x150.jpg"]
+  end
+
+  def set_user_image(facebook_image)
+    case self.gender_id
+    when 1
+      men.sample
+    when 2
+      women.sample
+    else
+      facebook_image
+    end
+  end
+
+  def self.from_omniauth(data)
+     
     if user = User.find_by_email(data.info.email)
       user.provider = data.provider
       user.uid = data.uid
@@ -53,7 +75,14 @@ class User < ActiveRecord::Base
           user.location = "London, England"
         end
 
-        user.gender_id = 5
+        gender = data.extra.raw_info.gender
+        if gender == 'male'
+          user.gender_id = 1
+        elsif gender == 'female'
+          user.gender_id = 2
+        else
+          user.gender_id = 5
+        end
         
         birthday = data.extra.raw_info.birthday
         user.birthday = Date.strptime(birthday, '%m/%d/%Y')
