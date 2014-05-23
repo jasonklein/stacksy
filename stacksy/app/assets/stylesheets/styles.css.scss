@@ -142,9 +142,12 @@ h3, #js-alert, .alert, .notice {
   margin-top: 300px;
 }
 
-svg {
-  fill: #fff;
+svg{
+  fill: #5C3317;
+}
 
+.homepage svg {
+  fill: #fff;
 }
 
 .special {
@@ -273,15 +276,25 @@ h3.panel-title {
 
 }
 
-.sidebar-sub-user-info a{
-  color:#FFDE00;
+#sidebar-sub-user-name{
+  color: white;
+  font-family: "Open Sans";
+  font-weight: 300;
+  margin-top: 5px;
 }
 
 .sidebar-sub-user-info{
-  font-size: .7em;
-  color: white;
+  font-size: .5em;
+  color: #0A40B5;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .home_page_user_photo img :hover{
   opacity: 100%;
 }
+
+.nav a.menu-button{
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+}
+
