@@ -215,7 +215,19 @@ label{
   display: inline-block;
   width: 280px;
   margin-bottom: 20px;
+}
 
+.search-profile-circles img{
+    opacity: .8;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out
+  }
+
+#sign-up-submit{
+  margin-top: 20px;
 }
 
 
