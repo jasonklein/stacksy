@@ -11,8 +11,8 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @profile = @user.profile
-     
+    @profile = @user.profile 
+    @genders = Gender.all
   end
 
   def update
