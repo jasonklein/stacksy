@@ -1,0 +1,8 @@
+.small-index-div-tracks
+  = link_to image_tag(person.profile.image_1, class: 'circular_small'), profile_path(person)
+  %br
+  = link_to person.name, profile_path(person)
+  %br
+  %p
+    #{person.age}, 
+      

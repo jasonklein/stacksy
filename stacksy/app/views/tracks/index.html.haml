@@ -2,7 +2,8 @@
   .col-md-6
     %h2 Who you lookin' at.
     .tracks-container.text-left
-      = render partial: 'tracks', locals: {tracks: @sent_tracks}
+      - @sent_tracks.each do |track|
+        = render partial: 'track', locals: {track: track, person: @sent_track.recipient}
   .col-md-6
     %h2 Who's lookin' at you, kid?
     - if current_user.role? :basic
@@ -12,6 +13,7 @@
         %em Hmmm... upgrade?
     - else
       .tracks-container.text-left
-        = render partial: 'tracks', locals: {tracks: @received_tracks}
+        - @received_tracks.each do |track|
+          = render partial: 'track', locals: {track: track, person: @received_track.sender}
 
       
