@@ -1,11 +1,12 @@
 - tracks.each do |track|
-  = image_tag(track.tracker.profile.image_1, class: 'circular_large')
-  %br
-  = link_to track.tracker.name, profile_path(track.tracker)
-  %br
-  %p
-    #{track.tracker.age}, 
-    - if track.tracker.gender_id == 5
-      #{track.tracker.profile.other.capitalize}
-    - else
-      #{track.tracker.other.capitalize}
+  .small-index-div-tracks
+    = link_to image_tag(track.tracker.profile.image_1, class: 'circular_small'), profile_path(track.tracker)
+    %br
+    = link_to track.tracker.name, profile_path(track.tracker)
+    %br
+    %p
+      #{track.tracker.age}, 
+      - if track.tracker.gender_id == 5
+        #{track.tracker.profile.other.capitalize}
+      - else
+        #{track.tracker.other.capitalize}

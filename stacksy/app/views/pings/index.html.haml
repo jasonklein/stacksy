@@ -1,12 +1,13 @@
 
-%h2 Sent Pings
--@pings_sent.each do |ping|
-  %p Pinger: #{ping.pinger.name}
-  %p Pinged: #{ping.pinged.name}
-  %br
+.row
+  .col-md-6
+    %h2 Pings Inbox
+    .pings-container.text-left
+      -@received_pings.each do |ping|
+        = render partial: 'ping', locals:{ping: ping, person: ping.pinger}
+  .col-md-6
+    %h2 Sent Pings
+    .pings-container.text-left
+      -@sent_pings.each do |ping|
+        = render partial: 'ping', locals: {pings: ping, person: ping.pinged}
 
-%h2 Received Pings
--@pings_received.each do |ping|
-  %p Pinger: #{ping.pinger.name}
-  %p Pinged: #{ping.pinged.name}
-  %br
