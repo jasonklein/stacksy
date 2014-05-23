@@ -13,5 +13,7 @@
     - else
       = render partial: 'reply', locals: {recipient: message.recipient}
   %td{class: classname}
-    .message-button.btn.btn-success Reply       
+    .message-button.btn.btn-success Reply
+    %br
+    %br     
     = link_to "Delete", delete_message_path(current_user, message), method: :delete, class: "btn btn-info"
