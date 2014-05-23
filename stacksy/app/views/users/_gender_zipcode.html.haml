@@ -12,5 +12,7 @@
     %br
     %h2 Postal Code
     = f.text_field :zipcode
+    %h2 Location
+    = f.text_field :location, placeholder: "E.g., City, Country"
     #sign-up-submit
       = f.submit class: "btn btn-success btn-large"

@@ -49,6 +49,8 @@ class User < ActiveRecord::Base
         user.email = data.info.email
         if data.info.location?  
           user.location = data.info.location
+        else
+          user.location = "London, England"
         end
 
         user.gender_id = 5
@@ -105,9 +107,12 @@ class User < ActiveRecord::Base
     self.role.to_s == role.to_s
   end
 
-# helper_method :geocode_entry
   def address
-    zipcode + " " + location
+    if zipcode
+      zipcode + " " + location
+    else
+      location
+    end
   end
   
   scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
