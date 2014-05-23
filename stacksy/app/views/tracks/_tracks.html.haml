@@ -1,11 +1,7 @@
 - tracks.each do |track|
-  = image_tag(track.tracker.profile.image_1, class: 'circular_large')
-  %br
-  = link_to track.tracker.name, profile_path(track.tracker)
+  = image_tag(track.engagement.profile.image_1, class: 'circular_large')
+
+  = link_to track.engagement.name, profile_path(track.engagement)
   %br
   %p
-    #{track.tracker.age}, 
-    - if track.tracker.gender_id == 5
-      #{track.tracker.profile.other.capitalize}
-    - else
-      #{track.tracker.other.capitalize}
+    = track.engagement.age
