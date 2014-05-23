@@ -9,11 +9,16 @@ class Ability
       can :read, User
       can :manage, User, id: user.id
       can :manage, Message
+      can :read, Ping, pinger_id: user.id
+      can :create, Ping
+      can :read, Track, tracker_id: user.id
     elsif user.role? :paid
       can :read, User
       can :manage, User, id: user.id
       can :manage, Message
-      can :manage, Track, tracker_id: user.id
+      can :read, Ping
+      can :create, Ping
+      can :read, Track
     end
   end
 end
