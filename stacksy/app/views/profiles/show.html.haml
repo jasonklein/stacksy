@@ -24,6 +24,8 @@
       = @user.name
       - if can? :update, @user
         = link_to "Edit", edit_user_profile_path(@user, @profile), class: 'btn btn-success'
+      - if can? :update, @user
+        = link_to "Settings", user_gender_zipcode_sign_up_path(@user), class: 'btn btn-success'
 
     .basic_info
       %h4

@@ -43,14 +43,15 @@ body > .container-fluid > .row > .col-md-2 {
 }
 
 header{
-  margin-bottom: 50px;
+  
 }
 
 #js-alert {
   width: 300px;
-  margin: 30px auto 50px auto;
+  margin: 0px auto 0px auto;
   font-family: 'Pacifico', cursive;
   font-size: 25px;
+  height: 25px;
 }
 
 
@@ -91,7 +92,6 @@ h1 {
   font-size: 150px;
   font-family: 'Pacifico', cursive;
   color: #FF6000;
-  margin-bottom: 70px;
 }
 
 h2 {
@@ -231,6 +231,12 @@ label{
     -ms-transition: all .3s ease-in-out
   }
 
+.small-index-div-tracks{
+  width: 15%;
+  display: inline-block;
+  margin-right: 25px;
+  margin-left: 25px;
+}
 
 #sign-up-submit{
   margin-top: 20px;

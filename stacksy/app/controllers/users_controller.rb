@@ -55,58 +55,46 @@ class UsersController < ApplicationController
     end
   end
 
-def show
-  @user = User.find(params[:id])
-end
+  def show
+    @user = User.find(params[:id])
+  end
 
-def membership
-  @user = current_user
-end
-
-
-def age
-    now = Time.now.utc.to_date
-    now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
-end
+  def membership
+    @user = current_user
+  end
 
 
-def reverse_age(min_age, max_age)
-  min_age = min_age.to_i
-  max_age = max_age.to_i
+  def age
+      now = Time.now.utc.to_date
+      now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
 
-  #Minimum/Earliest birthday: Oldest Age
-  min_now = Time.now.utc.to_date
-  params[:q][:birthday_gteq] = min_now.change(:year => min_now.year - max_age)
 
-  #Maximum/Latest birthday: Youngest Age
-  max_now = Time.now.utc.to_date
-  params[:q][:birthday_lteq] = max_now.change(:year => max_now.year - min_age)
-end
+  def reverse_age(min_age, max_age)
+    min_age = min_age.to_i
+    max_age = max_age.to_i
 
-  # private
-  # helper_method :people_who_would_be_interested_in_me
-  # def people_who_would_be_interested_in_me
-  #     matches = []
-  #     User.all.each do |user|
-  #       if user.gender_interest_ids.include(current_user.gender_id)
-  #         matches << user
-  #       end
-  #     end
-  #     matches
-  #   end
+    #Minimum/Earliest birthday: Oldest Age
+    min_now = Time.now.utc.to_date
+    params[:q][:birthday_gteq] = min_now.change(:year => min_now.year - max_age)
+
+    #Maximum/Latest birthday: Youngest Age
+    max_now = Time.now.utc.to_date
+    params[:q][:birthday_lteq] = max_now.change(:year => max_now.year - min_age)
+  end
 
   private
   helper_method :membership_status
-  def membership_status
-    if current_user.role == "basic"
-      "a Basic"
-    elsif current_user.role == "paid"
-      "a Premium"
-    else
-      "an Admin"
+    def membership_status
+      if current_user.role == "basic"
+        "a Basic"
+      elsif current_user.role == "paid"
+        "a Premium"
+      else
+        "an Admin"
+      end
     end
   end
-end
 
 
 
