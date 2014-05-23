@@ -24,8 +24,7 @@ Stacksy::Application.routes.draw do
   get '/users/:id/profile', to: 'profiles#show', as: 'profile'
   post '/users/messages/:recipient_id', to: 'messages#create', as: 'create_message'
   post '/users/:pinged_id/pings', to: 'pings#create', as: 'create_ping'
-  get '/users/:id/tracker_index', to: 'tracks#tracker_index', as: 'tracker_index'
-  get '/users/:id/tracked_index', to: 'tracks#tracked_index', as: 'tracked_index'
+  get '/users/:id/tracks', to: 'tracks#index', as: 'user_tracks'
   post '/users/:user_id/messages/:id', to: 'messages#destroy', as: 'delete_message'
   devise_scope :user do
     root :to => "devise/sessions#new"
