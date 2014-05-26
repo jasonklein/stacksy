@@ -23,9 +23,8 @@ class UsersController < ApplicationController
     end
 
     if params[:q]
-      assign_params = params[:q]
-      distance = assign_params.delete(:distance)
-      @q = User.ransack(assign_params)
+      distance = params[:distance]
+      @q = User.ransack(params[:q])
       ransack_results = @q.result
       geocoder_results = current_user.nearbys(distance.present? ? distance : 100000)
       @users = geocoder_results.where(id: ransack_results)

@@ -645,3 +645,1280 @@ Migrating to RemoveDistanceFromUsers (20140526134414)
   [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20140526134414')
   [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
   [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-26 17:54:47 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/users/1/home
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 99.1ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/users/1/home" for 127.0.0.1 at 2014-05-26 17:54:47 +0100
+Processing by UsersController#home as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE (id != 1)
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (id != 1)
+  Rendered users/home.html.haml within layouts/application (3.4ms)
+  [1m[36mProfile Load (0.7ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'[0m
+Completed 200 OK in 373.5ms (Views: 197.1ms | ActiveRecord: 17.6ms | Solr: 0.0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 17:54:48 +0100
+
+
+Started GET "/users/1/search" for 127.0.0.1 at 2014-05-26 17:54:52 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" 
+  Rendered users/search.html.haml within layouts/application (11.8ms)
+Completed 500 Internal Server Error in 24.7ms
+
+NoMethodError - undefined method `distance' for Ransack::Search<class: User, base: Grouping <combinator: and>>:Ransack::Search:
+  ransack (1.2.3) lib/ransack/search.rb:86:in `method_missing'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1159:in `value_before_type_cast'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1147:in `value_before_type_cast'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1041:in `block in to_input_field_tag'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1041:in `to_input_field_tag'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1054:in `to_number_field_tag'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:938:in `number_field'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1283:in `number_field'
+  app/views/users/search.html.haml:16:in `block in _app_views_users_search_html_haml___1438719572015187177_70322163165920'
+  haml (4.0.5) lib/haml/helpers/action_view_mods.rb:137:in `block (2 levels) in form_for_with_haml'
+  haml (4.0.5) lib/haml/helpers.rb:278:in `with_tabs'
+  haml (4.0.5) lib/haml/helpers/action_view_mods.rb:137:in `block in form_for_with_haml'
+  actionpack (3.2.18) lib/action_view/helpers/capture_helper.rb:40:in `block in capture'
+  actionpack (3.2.18) lib/action_view/helpers/capture_helper.rb:187:in `with_output_buffer'
+  haml (4.0.5) lib/haml/helpers/action_view_xss_mods.rb:5:in `with_output_buffer_with_haml_xss'
+  actionpack (3.2.18) lib/action_view/helpers/capture_helper.rb:40:in `capture'
+  haml (4.0.5) lib/haml/helpers/action_view_mods.rb:52:in `capture_with_haml'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:378:in `form_for'
+  haml (4.0.5) lib/haml/helpers/action_view_mods.rb:139:in `form_for_with_haml'
+  haml (4.0.5) lib/haml/helpers/action_view_xss_mods.rb:28:in `form_for_with_haml_xss'
+  ransack (1.2.3) lib/ransack/helpers/form_helper.rb:35:in `search_form_for'
+  app/views/users/search.html.haml:3:in `_app_views_users_search_html_haml___1438719572015187177_70322163165920'
+  actionpack (3.2.18) lib/action_view/template.rb:145:in `block in render'
+  activesupport (3.2.18) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.18) lib/action_view/template.rb:143:in `render'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+  actionpack (3.2.18) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.18) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.18) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.18) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.18) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.18) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.18) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.18) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.18) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (3.2.18) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.18) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  sunspot_rails (2.1.1) lib/sunspot/rails/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.18) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.18) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:436:in `_run__2673190114274651038__process_action__1852068418154846060__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.18) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.18) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.18) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.18) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `_run__1331232673392886345__call__4584294703383705460__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.18) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.18) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/static.rb:63:in `call'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `block in call'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/timeout.rb:66:in `timeout'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `call'
+  railties (3.2.18) lib/rails/engine.rb:484:in `call'
+  railties (3.2.18) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70322163723500/variables" for 127.0.0.1 at 2014-05-26 17:54:52 +0100
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" [0m
+
+
+Started GET "/users/1/search" for 127.0.0.1 at 2014-05-26 17:58:04 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.6ms)[0m  SELECT "genders".* FROM "genders" 
+  Rendered users/search.html.haml within layouts/application (58.0ms)
+Completed 500 Internal Server Error in 183.4ms
+
+NoMethodError - undefined method `distance' for Ransack::Search<class: User, base: Grouping <combinator: and>>:Ransack::Search:
+  ransack (1.2.3) lib/ransack/search.rb:86:in `method_missing'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1159:in `value_before_type_cast'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1147:in `value_before_type_cast'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1041:in `block in to_input_field_tag'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1041:in `to_input_field_tag'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1054:in `to_number_field_tag'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:938:in `number_field'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:1283:in `number_field'
+  app/views/users/search.html.haml:16:in `block in _app_views_users_search_html_haml___1438719572015187177_70322132503620'
+  haml (4.0.5) lib/haml/helpers/action_view_mods.rb:137:in `block (2 levels) in form_for_with_haml'
+  haml (4.0.5) lib/haml/helpers.rb:278:in `with_tabs'
+  haml (4.0.5) lib/haml/helpers/action_view_mods.rb:137:in `block in form_for_with_haml'
+  actionpack (3.2.18) lib/action_view/helpers/capture_helper.rb:40:in `block in capture'
+  actionpack (3.2.18) lib/action_view/helpers/capture_helper.rb:187:in `with_output_buffer'
+  haml (4.0.5) lib/haml/helpers/action_view_xss_mods.rb:5:in `with_output_buffer_with_haml_xss'
+  actionpack (3.2.18) lib/action_view/helpers/capture_helper.rb:40:in `capture'
+  haml (4.0.5) lib/haml/helpers/action_view_mods.rb:52:in `capture_with_haml'
+  actionpack (3.2.18) lib/action_view/helpers/form_helper.rb:378:in `form_for'
+  haml (4.0.5) lib/haml/helpers/action_view_mods.rb:139:in `form_for_with_haml'
+  haml (4.0.5) lib/haml/helpers/action_view_xss_mods.rb:28:in `form_for_with_haml_xss'
+  ransack (1.2.3) lib/ransack/helpers/form_helper.rb:35:in `search_form_for'
+  app/views/users/search.html.haml:3:in `_app_views_users_search_html_haml___1438719572015187177_70322132503620'
+  actionpack (3.2.18) lib/action_view/template.rb:145:in `block in render'
+  activesupport (3.2.18) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.18) lib/action_view/template.rb:143:in `render'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+  actionpack (3.2.18) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.18) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.18) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.18) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.18) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.18) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.18) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.18) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.18) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.18) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (3.2.18) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.18) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  sunspot_rails (2.1.1) lib/sunspot/rails/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.18) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.18) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:436:in `_run__2673190114274651038__process_action__1852068418154846060__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.18) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.18) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.18) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.18) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `_run__1331232673392886345__call__4584294703383705460__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.18) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.18) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/static.rb:63:in `call'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `block in call'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/timeout.rb:66:in `timeout'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `call'
+  railties (3.2.18) lib/rails/engine.rb:484:in `call'
+  railties (3.2.18) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70322131022260/variables" for 127.0.0.1 at 2014-05-26 17:58:05 +0100
+  [1m[36mUser Load (6.8ms)[0m  [1mSELECT "users".* FROM "users" [0m
+
+
+Started GET "/users/1/search" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.6ms)[0m  SELECT "genders".* FROM "genders" 
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mProfile Load (0.6ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1
+  [1m[36mGender Load (0.6ms)[0m  [1mSELECT "genders".* FROM "genders" WHERE "genders"."id" = 1 LIMIT 1[0m
+  Rendered users/search.html.haml within layouts/application (42.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'
+Completed 200 OK in 133.3ms (Views: 118.0ms | ActiveRecord: 4.8ms | Solr: 0.0ms)
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:00:49 +0100
+
+
+Started GET "/users/1/search" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mGender Load (0.4ms)[0m  [1mSELECT "genders".* FROM "genders" [0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" WHERE "genders"."id" = 1 LIMIT 1
+  Rendered users/search.html.haml within layouts/application (13.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'[0m
+Completed 200 OK in 45.4ms (Views: 34.2ms | ActiveRecord: 3.4ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:00:57 +0100
+
+
+Started GET "/users/1/search?utf8=%E2%9C%93&q%5Bbirthday_lteq%5D=&q%5Bbirthday_gteq%5D=&distance=100&commit=Git" for 127.0.0.1 at 2014-05-26 18:01:02 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"birthday_lteq"=>"", "birthday_gteq"=>""}, "distance"=>"100", "commit"=>"Git", "id"=>"1"}
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" 
+Completed 500 Internal Server Error in 11.3ms
+
+RuntimeError - :
+  app/controllers/users_controller.rb:26:in `search'
+  actionpack (3.2.18) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:436:in `_run__2673190114274651038__process_action__1852068418154846060__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.18) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.18) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.18) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.18) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `_run__1331232673392886345__call__4584294703383705460__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.18) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.18) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/static.rb:63:in `call'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `block in call'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/timeout.rb:66:in `timeout'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `call'
+  railties (3.2.18) lib/rails/engine.rb:484:in `call'
+  railties (3.2.18) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70322143474840/variables" for 127.0.0.1 at 2014-05-26 18:01:02 +0100
+
+
+Started POST "/__better_errors/70322143474840/eval" for 127.0.0.1 at 2014-05-26 18:01:05 +0100
+
+
+Started GET "/users/1/search" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mGender Load (0.2ms)[0m  [1mSELECT "genders".* FROM "genders" [0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mProfile Load (0.6ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35mGender Load (0.4ms)[0m  SELECT "genders".* FROM "genders" WHERE "genders"."id" = 1 LIMIT 1
+  Rendered users/search.html.haml within layouts/application (86.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'[0m
+Completed 200 OK in 231.7ms (Views: 107.1ms | ActiveRecord: 14.8ms | Solr: 0.0ms)
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:03:17 +0100
+
+
+Started GET "/users/1/search?utf8=%E2%9C%93&q%5Bgender_id_eq_any%5D%5B%5D=1&q%5Bbirthday_lteq%5D=&q%5Bbirthday_gteq%5D=&distance=10&commit=Git" for 127.0.0.1 at 2014-05-26 18:03:25 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"gender_id_eq_any"=>["1"], "birthday_lteq"=>"", "birthday_gteq"=>""}, "distance"=>"10", "commit"=>"Git", "id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.4ms)[0m  SELECT "genders".* FROM "genders" 
+Completed 500 Internal Server Error in 14.5ms
+
+RuntimeError - :
+  app/controllers/users_controller.rb:26:in `search'
+  actionpack (3.2.18) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:436:in `_run__2673190114274651038__process_action__1852068418154846060__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.18) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.18) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.18) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.18) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `_run__1331232673392886345__call__4584294703383705460__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.18) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.18) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/static.rb:63:in `call'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `block in call'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/timeout.rb:66:in `timeout'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `call'
+  railties (3.2.18) lib/rails/engine.rb:484:in `call'
+  railties (3.2.18) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70322163839200/variables" for 127.0.0.1 at 2014-05-26 18:03:25 +0100
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:03:28 +0100
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:03:41 +0100
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:03:57 +0100
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE (("users"."gender_id" = 1))[0m
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:04:15 +0100
+  [1m[35mUser Load (3.6ms)[0m  SELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE (users.latitude BETWEEN -1395.7765537084797 AND 1498.8591085084795 AND users.longitude BETWEEN -2327.1267420893355 AND 2326.9975032893353 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND 100000 AND users.id != 1) ORDER BY distance ASC
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:04:34 +0100
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:04:36 +0100
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE (users.latitude BETWEEN 51.39654561688915 AND 51.68600918311085 AND users.longitude BETWEEN -0.29732561226893356 AND 0.16808681226893357 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND '10' AND users.id != 1) ORDER BY distance ASC[0m
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:05:09 +0100
+  [1m[35mUser Load (3.8ms)[0m  SELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE "users"."id" IN (SELECT "users"."id" FROM "users" WHERE (("users"."gender_id" = 1))) AND (users.latitude BETWEEN 51.39654561688915 AND 51.68600918311085 AND users.longitude BETWEEN -0.29732561226893356 AND 0.16808681226893357 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND '10' AND users.id != 1) ORDER BY distance ASC
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:06:03 +0100
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:06:13 +0100
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:06:27 +0100
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:06:35 +0100
+  [1m[36mUser Load (5.2ms)[0m  [1mSELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE (users.latitude BETWEEN 51.39654561688915 AND 51.68600918311085 AND users.longitude BETWEEN -0.29732561226893356 AND 0.16808681226893357 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND 10 AND users.id != 1) ORDER BY distance ASC[0m
+
+
+Started POST "/__better_errors/70322163839200/eval" for 127.0.0.1 at 2014-05-26 18:06:41 +0100
+  [1m[35mUser Load (1.4ms)[0m  SELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE (users.latitude BETWEEN 51.5412774 AND 51.5412774 AND users.longitude BETWEEN -0.0646194 AND -0.0646194 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND 0 AND users.id != 1) ORDER BY distance ASC
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (3.8ms)
+Completed 200 OK in 74.0ms (Views: 72.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:09:06 +0100
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2014-05-26 18:09:07 +0100
+
+
+Started GET "/users/auth/facebook/callback?code=AQDAHVZv5qYMKPqHR7iF8flHgxtG_FwcCiAVflPRnycmzEQSy0w1JUUMlff95k_ESO0O2haN8nKe2TRXb7P0BrCuU6XGz17hOdHzCT7SWHgMx1Y3pIyw41kGgeSjDc9HAZIgpNgJRu-FqdamkhaubWasQ5DgSS6IjR9sUjK7KdJfiBPTzD9gmQQp53XvB4juH_p5W04UZ-VNGm2Q_vUoPEMQNMkrv4lOvo9UFzg1Qf7ysDqt2qK4rZf8TtGdlfKDHOYk2KeNJfk6oQwGQfOBYGBXaD7xJc_rVfgY_ShYdGN6_o5RGwNVXCIiA73EgAd0MmU&state=0cb37554df7aa3a2745039dd924b981a3520ba4187ac8453" for 127.0.0.1 at 2014-05-26 18:09:07 +0100
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDAHVZv5qYMKPqHR7iF8flHgxtG_FwcCiAVflPRnycmzEQSy0w1JUUMlff95k_ESO0O2haN8nKe2TRXb7P0BrCuU6XGz17hOdHzCT7SWHgMx1Y3pIyw41kGgeSjDc9HAZIgpNgJRu-FqdamkhaubWasQ5DgSS6IjR9sUjK7KdJfiBPTzD9gmQQp53XvB4juH_p5W04UZ-VNGm2Q_vUoPEMQNMkrv4lOvo9UFzg1Qf7ysDqt2qK4rZf8TtGdlfKDHOYk2KeNJfk6oQwGQfOBYGBXaD7xJc_rVfgY_ShYdGN6_o5RGwNVXCIiA73EgAd0MmU", "state"=>"0cb37554df7aa3a2745039dd924b981a3520ba4187ac8453"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'okbndga_greenewitz_1400843668@tfbnw.net' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."provider" = 'facebook' AND "users"."uid" = '272979216207070' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'okbndga_greenewitz_1400843668@tfbnw.net' LIMIT 1
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "users" ("birthday", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "gender_id", "last_sign_in_at", "last_sign_in_ip", "latitude", "location", "longitude", "name", "other", "provider", "relationship_status", "remember_created_at", "reset_password_sent_at", "reset_password_token", "role", "sign_in_count", "uid", "updated_at", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24) RETURNING "id"[0m  [["birthday", Fri, 08 Aug 1980], ["created_at", Mon, 26 May 2014 17:09:09 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "okbndga_greenewitz_1400843668@tfbnw.net"], ["encrypted_password", "$2a$10$R8o0IrdCxRu8eX//qxV0pOEeesJOqGEcd7vCUvCn7uboqubNfCmuC"], ["gender_id", 2], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["latitude", 51.508515], ["location", "London, England"], ["longitude", -0.1254872], ["name", "Ruth Amdhdihadgda Greenewitz"], ["other", ""], ["provider", "facebook"], ["relationship_status", "single"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["role", "new"], ["sign_in_count", 0], ["uid", "272979216207070"], ["updated_at", Mon, 26 May 2014 17:09:09 UTC +00:00], ["zipcode", nil]]
+  [1m[35m (7.9ms)[0m  COMMIT
+  [1m[36mProfile Load (1.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "fav_characters", "fav_places", "fav_spots", "fb_interests", "flags", "guilty_pleasure", "icon", "image_1", "image_2", "image_3", "image_4", "image_5", "industry", "interests", "link", "occupation", "quip", "stack", "updated_at", "user_id", "why_tech") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) RETURNING "id"[0m  [["created_at", Mon, 26 May 2014 17:09:09 UTC +00:00], ["fav_characters", nil], ["fav_places", nil], ["fav_spots", nil], ["fb_interests", nil], ["flags", 0], ["guilty_pleasure", nil], ["icon", nil], ["image_1", "http://www.michaelwharley.com/wp-content/uploads/2012/12/headshot-headshots-actor-headshots-actors-headshots-london-michael-wharely-156-150x150.jpg"], ["image_2", nil], ["image_3", nil], ["image_4", nil], ["image_5", nil], ["industry", "Tech"], ["interests", nil], ["link", nil], ["occupation", nil], ["quip", nil], ["stack", nil], ["updated_at", Mon, 26 May 2014 17:09:09 UTC +00:00], ["user_id", 2], ["why_tech", nil]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2014-05-26 17:09:09.448268', "current_sign_in_at" = '2014-05-26 17:09:09.448268', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2014-05-26 17:09:09.449426' WHERE "users"."id" = 2
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mUPDATE "users" SET "role" = 'basic', "updated_at" = '2014-05-26 17:09:09.525092' WHERE "users"."id" = 2[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2/sign_up_1
+Completed 302 Found in 707.8ms (ActiveRecord: 28.1ms)
+
+
+Started GET "/users/2/sign_up_1" for 127.0.0.1 at 2014-05-26 18:09:09 +0100
+Processing by UsersController#gender_zipcode as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" [0m
+  [1m[35mSQL (0.5ms)[0m  SELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2
+  Rendered users/_gender_zipcode.html.haml (21.2ms)
+  Rendered users/gender_zipcode.html.haml within layouts/application (22.7ms)
+  [1m[36mProfile Load (0.6ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 2 AND "messages"."viewed" = 'f'
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 2 AND "pings"."viewed" = 'f'[0m
+Completed 200 OK in 116.6ms (Views: 96.8ms | ActiveRecord: 11.3ms | Solr: 0.0ms)
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:09:09 +0100
+
+
+Started PUT "/users/2" for 127.0.0.1 at 2014-05-26 18:09:49 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c8JyXMEARfhWMI2SLOt7R/6fuf6uzep9g4vBLaCYJ1s=", "user"=>{"gender_id"=>"2", "gender_interest_ids"=>["2"], "zipcode"=>"M2 1DW", "location"=>"Manchester, England"}, "commit"=>"Update User", "id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mGender Load (0.6ms)[0m  SELECT "genders".* FROM "genders" WHERE "genders"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mGender Load (0.4ms)[0m  [1mSELECT "genders".* FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "interests" ("created_at", "gender_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Mon, 26 May 2014 17:09:49 UTC +00:00], ["gender_id", 2], ["updated_at", Mon, 26 May 2014 17:09:49 UTC +00:00], ["user_id", 2]]
+  [1m[36m (0.7ms)[0m  [1mUPDATE "users" SET "zipcode" = 'M2 1DW', "location" = 'Manchester, England', "latitude" = 53.4819112, "longitude" = -2.2428841, "updated_at" = '2014-05-26 17:09:49.918836' WHERE "users"."id" = 2[0m
+  [1m[35m (8.4ms)[0m  COMMIT
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2[0m
+Redirected to http://localhost:3000/users/2/home
+Completed 302 Found in 124.0ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/users/2/home" for 127.0.0.1 at 2014-05-26 18:09:49 +0100
+Processing by UsersController#home as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (id != 2)[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (id != 2)[0m
+  Rendered users/home.html.haml within layouts/application (0.1ms)
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 2 AND "messages"."viewed" = 'f'[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 2 AND "pings"."viewed" = 'f'
+Completed 200 OK in 35.3ms (Views: 19.8ms | ActiveRecord: 4.6ms | Solr: 0.0ms)
+
+
+Started GET "/users/2/search" for 127.0.0.1 at 2014-05-26 18:09:52 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" [0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" WHERE "genders"."id" = 1 LIMIT 1
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1[0m
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" WHERE "genders"."id" = 2 LIMIT 1
+  Rendered users/search.html.haml within layouts/application (13.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 2 AND "messages"."viewed" = 'f'
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 2 AND "pings"."viewed" = 'f'[0m
+Completed 200 OK in 43.8ms (Views: 31.8ms | ActiveRecord: 4.0ms | Solr: 0.0ms)
+
+
+Started GET "/users/1/search" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" 
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" WHERE "genders"."id" = 1 LIMIT 1[0m
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" WHERE "genders"."id" = 2 LIMIT 1[0m
+  Rendered users/search.html.haml within layouts/application (67.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'
+Completed 200 OK in 97.5ms (Views: 85.1ms | ActiveRecord: 4.4ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:10:00 +0100
+
+
+Started GET "/users/1/search?utf8=%E2%9C%93&q%5Bgender_id_eq_any%5D%5B%5D=2&q%5Bbirthday_lteq%5D=&q%5Bbirthday_gteq%5D=&distance=10&commit=Git" for 127.0.0.1 at 2014-05-26 18:10:10 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"gender_id_eq_any"=>["2"], "birthday_lteq"=>"", "birthday_gteq"=>""}, "distance"=>"10", "commit"=>"Git", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" [0m
+Completed 500 Internal Server Error in 9.0ms
+
+RuntimeError - :
+  app/controllers/users_controller.rb:26:in `search'
+  actionpack (3.2.18) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:436:in `_run__2673190114274651038__process_action__1852068418154846060__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.18) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.18) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.18) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.18) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.18) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.18) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.18) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.18) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.18) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.1) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.18) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.18) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `_run__1331232673392886345__call__4584294703383705460__callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.18) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.18) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.18) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.18) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.18) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.18) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.18) lib/action_dispatch/middleware/static.rb:63:in `call'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `block in call'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/timeout.rb:66:in `timeout'
+  rack-timeout (0.0.4) lib/rack/timeout.rb:16:in `call'
+  railties (3.2.18) lib/rails/engine.rb:484:in `call'
+  railties (3.2.18) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.18) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jiveMacBook/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70322163350200/variables" for 127.0.0.1 at 2014-05-26 18:10:10 +0100
+
+
+Started POST "/__better_errors/70322163350200/eval" for 127.0.0.1 at 2014-05-26 18:10:30 +0100
+
+
+Started POST "/__better_errors/70322163350200/eval" for 127.0.0.1 at 2014-05-26 18:10:37 +0100
+
+
+Started POST "/__better_errors/70322163350200/eval" for 127.0.0.1 at 2014-05-26 18:10:46 +0100
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE (("users"."gender_id" = 2))
+
+
+Started POST "/__better_errors/70322163350200/eval" for 127.0.0.1 at 2014-05-26 18:10:55 +0100
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE (users.latitude BETWEEN 51.39654561688915 AND 51.68600918311085 AND users.longitude BETWEEN -0.29732561226893356 AND 0.16808681226893357 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND '10' AND users.id != 1) ORDER BY distance ASC[0m
+
+
+Started POST "/__better_errors/70322163350200/eval" for 127.0.0.1 at 2014-05-26 18:11:32 +0100
+  [1m[35mUser Load (14.4ms)[0m  SELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE (users.latitude BETWEEN 37.068099088915204 AND 66.01445571108479 AND users.longitude BETWEEN -23.335240626893356 AND 23.206001826893353 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND 1000 AND users.id != 1) ORDER BY distance ASC
+
+
+Started POST "/__better_errors/70322163350200/eval" for 127.0.0.1 at 2014-05-26 18:11:44 +0100
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE "users"."id" IN (SELECT "users"."id" FROM "users" WHERE (("users"."gender_id" = 2))) AND (users.latitude BETWEEN 37.068099088915204 AND 66.01445571108479 AND users.longitude BETWEEN -23.335240626893356 AND 23.206001826893353 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND 1000 AND users.id != 1) ORDER BY distance ASC[0m
+
+
+Started GET "/users/1/search?utf8=%E2%9C%93&q%5Bgender_id_eq_any%5D%5B%5D=2&q%5Bbirthday_lteq%5D=&q%5Bbirthday_gteq%5D=&distance=10&commit=Git" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"gender_id_eq_any"=>["2"], "birthday_lteq"=>"", "birthday_gteq"=>""}, "distance"=>"10", "commit"=>"Git", "id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" 
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE "users"."id" IN (SELECT "users"."id" FROM "users" WHERE (("users"."gender_id" = 2))) AND (users.latitude BETWEEN 51.39654561688915 AND 51.68600918311085 AND users.longitude BETWEEN -0.29732561226893356 AND 0.16808681226893357 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND '10' AND users.id != 1) ORDER BY distance ASC[0m
+  Rendered users/search.html.haml within layouts/application (8.1ms)
+  [1m[35mProfile Load (0.7ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'
+Completed 200 OK in 238.4ms (Views: 103.7ms | ActiveRecord: 16.9ms | Solr: 0.0ms)
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:12:15 +0100
+
+
+Started GET "/users/1/search?utf8=%E2%9C%93&q%5Bbirthday_lteq%5D=&q%5Bbirthday_gteq%5D=&distance=&commit=Git" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"birthday_lteq"=>"", "birthday_gteq"=>""}, "distance"=>"", "commit"=>"Git", "id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" [0m
+  [1m[35mUser Load (2.2ms)[0m  SELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE "users"."id" IN (SELECT "users"."id" FROM "users" ) AND (users.latitude BETWEEN -1395.7765537084797 AND 1498.8591085084795 AND users.longitude BETWEEN -2327.1267420893355 AND 2326.9975032893353 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND 100000 AND users.id != 1) ORDER BY distance ASC
+  [1m[36mProfile Load (0.5ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1[0m
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" WHERE "genders"."id" = 2 LIMIT 1
+  Rendered users/search.html.haml within layouts/application (14.9ms)
+  [1m[36mProfile Load (0.5ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'[0m
+Completed 200 OK in 47.0ms (Views: 31.5ms | ActiveRecord: 6.4ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:12:20 +0100
+
+
+Started GET "/users/1/search?utf8=%E2%9C%93&q%5Bbirthday_lteq%5D=&q%5Bbirthday_gteq%5D=&distance=&commit=Git" for 127.0.0.1 at 2014-05-26 18:12:23 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"birthday_lteq"=>"", "birthday_gteq"=>""}, "distance"=>"", "commit"=>"Git", "id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" 
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE "users"."id" IN (SELECT "users"."id" FROM "users" ) AND (users.latitude BETWEEN -1395.7765537084797 AND 1498.8591085084795 AND users.longitude BETWEEN -2327.1267420893355 AND 2326.9975032893353 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND 100000 AND users.id != 1) ORDER BY distance ASC[0m
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" WHERE "genders"."id" = 2 LIMIT 1[0m
+  Rendered users/search.html.haml within layouts/application (14.2ms)
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'
+Completed 200 OK in 50.6ms (Views: 34.2ms | ActiveRecord: 5.6ms | Solr: 0.0ms)
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:23 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:23 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:23 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:24 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:24 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:24 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:24 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:24 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:24 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:24 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:12:24 +0100
+
+
+Started GET "/users/1/search" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" [0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mProfile Load (0.4ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35mGender Load (0.4ms)[0m  SELECT "genders".* FROM "genders" WHERE "genders"."id" = 1 LIMIT 1
+  [1m[36mProfile Load (0.6ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1[0m
+  [1m[35mGender Load (0.4ms)[0m  SELECT "genders".* FROM "genders" WHERE "genders"."id" = 2 LIMIT 1
+  Rendered users/search.html.haml within layouts/application (17.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'[0m
+Completed 200 OK in 51.6ms (Views: 38.7ms | ActiveRecord: 4.5ms | Solr: 0.0ms)
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:12:26 +0100
+
+
+Started GET "/users/1/search?utf8=%E2%9C%93&q%5Bbirthday_lteq%5D=&q%5Bbirthday_gteq%5D=&distance=&commit=Git" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+Processing by UsersController#search as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"birthday_lteq"=>"", "birthday_gteq"=>""}, "distance"=>"", "commit"=>"Git", "id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mGender Load (0.3ms)[0m  SELECT "genders".* FROM "genders" 
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT users.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((users.longitude - -0.0646194) / 57.2957795), ((users.latitude - 51.5412774) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM "users" WHERE "users"."id" IN (SELECT "users"."id" FROM "users" ) AND (users.latitude BETWEEN -1395.7765537084797 AND 1498.8591085084795 AND users.longitude BETWEEN -2327.1267420893355 AND 2326.9975032893353 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((51.5412774 - users.latitude) * PI() / 180 / 2), 2) + COS(51.5412774 * PI() / 180) * COS(users.latitude * PI() / 180) * POWER(SIN((-0.0646194 - users.longitude) * PI() / 180 / 2), 2)))) BETWEEN 0.0 AND 100000 AND users.id != 1) ORDER BY distance ASC[0m
+  [1m[35mProfile Load (0.4ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 2 LIMIT 1
+  [1m[36mGender Load (0.3ms)[0m  [1mSELECT "genders".* FROM "genders" WHERE "genders"."id" = 2 LIMIT 1[0m
+  Rendered users/search.html.haml within layouts/application (12.1ms)
+  [1m[35mProfile Load (0.5ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'
+Completed 200 OK in 50.0ms (Views: 34.2ms | ActiveRecord: 5.4ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
