@@ -1922,3 +1922,245 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-26 18:12:28
 
 
 Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-26 18:12:28 +0100
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 18:32:09 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (6.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/users/1/home
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 190.5ms (ActiveRecord: 89.5ms)
+
+
+Started GET "/users/1/home" for 127.0.0.1 at 2014-05-28 18:32:09 +0100
+Processing by UsersController#home as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mSQL (3.4ms)[0m  [1mSELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 1[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE (id != 1)[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (id != 1)[0m
+  Rendered users/home.html.haml within layouts/application (4.9ms)
+  [1m[35mProfile Load (1.5ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'
+Completed 200 OK in 448.5ms (Views: 301.6ms | ActiveRecord: 22.9ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:09 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-28 18:32:10 +0100
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-05-28 18:32:12 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IEMmBvNmSsE0bjrZVRWOeRnvY9FKOdxpb6lZXI+kCe0="}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 18.8ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 18:32:12 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (3.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (12.7ms)
+Completed 200 OK in 140.5ms (Views: 135.9ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:12 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:12 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:12 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:12 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:12 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (1.0ms)
+Completed 200 OK in 12.8ms (Views: 12.1ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 18:32:18 +0100
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2014-05-28 18:33:19 +0100
+
+
+Started GET "/users/auth/facebook/callback?code=AQAQc3uP3gN6YL02y_3GgFcpIozY85LfFpIjHSsleKDtxDk5wRyfw4MSELZpCmjnsJFuxK_ToH5q8u3fDIsc0PCr4V0iFjQR1yyserDGgNwKtXs354sbVVPNp-A19M4EBm-lF0xhtdqOwU9d2h_YYh9tT0pwyBGpco6N7tdRoiUGqYS-aWXn2TU8863hJub2A4LTlr-_Wb5S8wMmQFtYUFE17i4s-zv2Yu7wcR5Wr_7XC9oDKVUe7YshuvuauKUm_OOQ_cmIulTB9kHuVS7n9whJc1xf3XPEc-EWZWa9htsuGF7Nj18lmZ2W5wbi6MCltZc&state=c5d8290d06013f37e82f38bf854bac120c73957ee4965657" for 127.0.0.1 at 2014-05-28 18:33:19 +0100
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAQc3uP3gN6YL02y_3GgFcpIozY85LfFpIjHSsleKDtxDk5wRyfw4MSELZpCmjnsJFuxK_ToH5q8u3fDIsc0PCr4V0iFjQR1yyserDGgNwKtXs354sbVVPNp-A19M4EBm-lF0xhtdqOwU9d2h_YYh9tT0pwyBGpco6N7tdRoiUGqYS-aWXn2TU8863hJub2A4LTlr-_Wb5S8wMmQFtYUFE17i4s-zv2Yu7wcR5Wr_7XC9oDKVUe7YshuvuauKUm_OOQ_cmIulTB9kHuVS7n9whJc1xf3XPEc-EWZWa9htsuGF7Nj18lmZ2W5wbi6MCltZc", "state"=>"c5d8290d06013f37e82f38bf854bac120c73957ee4965657"}
+  [1m[35mUser Load (6.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jasonklein@gmail.com' LIMIT 1
+  [1m[36mProfile Load (1.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2014-05-28 17:33:20.807491', "sign_in_count" = 2, "updated_at" = '2014-05-28 17:33:20.811985' WHERE "users"."id" = 1[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1/home
+Completed 302 Found in 31.2ms (ActiveRecord: 11.4ms)
+
+
+Started GET "/users/1/home" for 127.0.0.1 at 2014-05-28 18:33:20 +0100
+Processing by UsersController#home as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mSQL (1.0ms)[0m  SELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 2
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE (id != 1)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "genders".id FROM "genders" INNER JOIN "interests" ON "genders"."id" = "interests"."gender_id" WHERE "interests"."user_id" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (id != 1)
+  Rendered users/home.html.haml within layouts/application (0.2ms)
+  [1m[36mProfile Load (1.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "messages" WHERE "messages"."recipient_id" = 1 AND "messages"."viewed" = 'f'
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "pings" WHERE "pings"."pinged_id" = 1 AND "pings"."viewed" = 'f'[0m
+Completed 200 OK in 193.6ms (Views: 157.1ms | ActiveRecord: 10.8ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started GET "/assets/tech_ad.gif" for 127.0.0.1 at 2014-05-28 18:33:21 +0100
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SWg9teqIV4v/cWMiwbOPP0R5EA/waXchVkqIO/AC3rw="}
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 12.4ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (2.9ms)
+Completed 200 OK in 35.7ms (Views: 34.0ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/omniauth_callbacks.css?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-28 18:33:26 +0100
