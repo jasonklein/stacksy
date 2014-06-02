@@ -18232,3 +18232,435 @@ Served asset /jquery.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-02 18:25:56 +0100
 Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-02 18:37:54 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (4.4ms)
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/bf58cbc8f66f32f3304b62921e1d2c82a629a741/application.css.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/9533d16c8b71ea3a7bd63b9f2950b529fe30c748/_bourbon.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/af4c05624784fa2edb304f5c37bbda231224eeb3/_prefixer.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/af4c05624784fa2edb304f5c37bbda231224eeb3/_px-to-em.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/af4c05624784fa2edb304f5c37bbda231224eeb3/_asset-pipeline.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_convert-units.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_gradient-positions-parser.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_is-num.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_linear-angle-parser.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_linear-gradient-parser.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_linear-positions-parser.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_linear-side-corner-parser.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_radial-arg-parser.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_radial-positions-parser.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_radial-gradient-parser.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_render-gradients.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_shape-size-stripper.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e8db142299f5c9498a318781cf0009f8a6ab2d11/_str-to-num.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_assign.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_color-lightness.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_flex-grid.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_golden-ratio.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_grid-width.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_modular-scale.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_px-to-em.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_px-to-rem.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_strip-units.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_tint-shade.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_transition-property-name.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b615faa2a758b7c5bb9a76ef5ac8bc5ad5548749/_unpack.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_animation.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_appearance.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_backface-visibility.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_background.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_background-image.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_border-image.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_border-radius.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_box-sizing.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_calc.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_columns.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_filter.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_flex-box.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_font-face.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_font-feature-settings.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_hyphens.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_hidpi-media-query.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_image-rendering.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_keyframes.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_linear-gradient.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_perspective.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_radial-gradient.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_transform.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_transition.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_user-select.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/d277be9d7007b228e728930cf71cfb1c38cd86bd/_placeholder.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_button.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_clearfix.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_directional-values.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_ellipsis.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_font-family.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_hide-text.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_html5-input-types.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_position.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_prefixer.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_retina-image.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_size.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_timing-functions.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_triangle.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/b5efe5ea71ea83deebca9537b08dc03ec7771777/_word-wrap.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/9533d16c8b71ea3a7bd63b9f2950b529fe30c748/_bourbon-deprecated-upcoming.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e49ac4106c6c29046e892013d8978afa45104007/_bitters.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e389b1ac5af410b06d02844300111f7d6daba3b7/_neat-helpers.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e5a2dd2699ab9296eb37d349412862fed2c8c7ed/_private.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e5a2dd2699ab9296eb37d349412862fed2c8c7ed/_new-breakpoint.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/79350d070e1f952ab286147dbd3fc1d6b49ea9e5/_grid.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/79350d070e1f952ab286147dbd3fc1d6b49ea9e5/_visual-grid.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e49ac4106c6c29046e892013d8978afa45104007/_grid-settings.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e49ac4106c6c29046e892013d8978afa45104007/_variables.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/270b5094218f95f164d65483d438ac1d47c5a5b9/_extends.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/270b5094218f95f164d65483d438ac1d47c5a5b9/_button.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/270b5094218f95f164d65483d438ac1d47c5a5b9/_clearfix.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/270b5094218f95f164d65483d438ac1d47c5a5b9/_ellipsis.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/270b5094218f95f164d65483d438ac1d47c5a5b9/_hide-text.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/5493253bcfef4e4f879398404827f9b7bdef5a6e/_mixins.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/5493253bcfef4e4f879398404827f9b7bdef5a6e/_flash.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e49ac4106c6c29046e892013d8978afa45104007/_typography.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e49ac4106c6c29046e892013d8978afa45104007/_forms.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e49ac4106c6c29046e892013d8978afa45104007/_tables.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e49ac4106c6c29046e892013d8978afa45104007/_lists.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e49ac4106c6c29046e892013d8978afa45104007/_flashes.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/e389b1ac5af410b06d02844300111f7d6daba3b7/_neat.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_private.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_reset.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_grid.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_omega.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_outer-container.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_span-columns.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_row.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_shift.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_pad.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_fill-parent.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_media.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_to-deprecate.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/6977922a0ce01c2165c75ef09c660ad90ca4f967/_visual-grid.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/bf58cbc8f66f32f3304b62921e1d2c82a629a741/styles.css.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Warning. Error encountered while saving cache /Users/jiveMacBook/Documents/general_assembly/wdi_work/heroku_apps/stacksy/tmp/cache/sass/bf58cbc8f66f32f3304b62921e1d2c82a629a741/sessions.css.scssc: can't dump anonymous class #<Class:0x007fa41cda5350>
+
+Compiled application.css  (1929ms)  (pid 3900)
+Completed 200 OK in 2062.7ms (Views: 2022.4ms | ActiveRecord: 6.6ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-02 18:37:56 +0100
+Served asset /application.css - 200 OK (10ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-02 18:37:56 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-02 18:37:56 +0100
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-06-02 18:37:56 +0100
+Served asset /omniauth_callbacks.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-02 18:37:56 +0100
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-06-02 18:37:56 +0100
+Served asset /tracks.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-02 18:37:56 +0100
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-02 18:39:53 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (1.9ms)
+Completed 200 OK in 7.4ms (Views: 6.7ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-02 18:39:54 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-02 18:39:54 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-02 18:39:54 +0100
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-06-02 18:39:54 +0100
+Served asset /omniauth_callbacks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-06-02 18:39:54 +0100
+Served asset /tracks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-02 18:39:54 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-02 18:39:54 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-02 18:40:17 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (1.5ms)
+Completed 200 OK in 7.0ms (Views: 6.2ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-02 18:40:17 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-02 18:40:17 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-06-02 18:40:17 +0100
+Served asset /omniauth_callbacks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-02 18:40:17 +0100
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-02 18:40:17 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-06-02 18:40:17 +0100
+Served asset /tracks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-02 18:40:18 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-02 18:52:11 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (1.0ms)
+Completed 200 OK in 7.1ms (Views: 6.3ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-02 18:52:11 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:11 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:11 +0100
+Served asset /omniauth_callbacks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:11 +0100
+Served asset /tracks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:11 +0100
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:11 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:11 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-02 18:52:23 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (1.0ms)
+Completed 200 OK in 8.2ms (Views: 7.5ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:23 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:24 +0100
+Served asset /omniauth_callbacks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-02 18:52:24 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:24 +0100
+Served asset /tracks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:24 +0100
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:24 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-02 18:52:24 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stacksy-favicon.ico" for 127.0.0.1 at 2014-06-02 18:52:24 +0100
+Served asset /stacksy-favicon.ico - 200 OK (87ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-02 18:56:06 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/layout_for_sessions_controller (1.0ms)
+Completed 200 OK in 6.7ms (Views: 5.9ms | ActiveRecord: 0.0ms | Solr: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-02 18:56:06 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/omniauth_callbacks.js?body=1" for 127.0.0.1 at 2014-06-02 18:56:06 +0100
+Served asset /omniauth_callbacks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2014-06-02 18:56:06 +0100
+Served asset /tracks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-02 18:56:06 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-06-02 18:56:06 +0100
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-02 18:56:06 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-02 18:56:06 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stacksy-favicon.ico" for 127.0.0.1 at 2014-06-02 18:56:07 +0100
+Served asset /stacksy-favicon.ico - 200 OK (12ms)
