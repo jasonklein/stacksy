@@ -27,6 +27,10 @@ gem 'ransack'
 gem 'cancan'
 gem 'geocoder'
 
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
