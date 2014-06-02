@@ -30,6 +30,7 @@ gem 'geocoder'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
+gem 'normalize-rails'
 
 
 # Gems used only for assets and not required

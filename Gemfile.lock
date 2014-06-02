@@ -95,6 +95,7 @@ GEM
       sass (>= 3.3)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
+    normalize-rails (3.0.1)
     oauth2 (0.9.3)
       faraday (>= 0.8, < 0.10)
       jwt (~> 0.1.8)
@@ -211,6 +212,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   neat
+  normalize-rails
   omniauth-facebook
   pg
   pry-rails
