@@ -8,13 +8,9 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .container
-      .row
-        .col-md-2
-        #sign-in-content.col-md-8
-          %p.notice
-            = notice
-          %p.alert
-            = alert
-          = yield
-        .col-md-2
+    #sign-in-content
+      %p.notice
+        = notice
+      %p.alert
+        = alert
+      = yield
