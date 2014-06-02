@@ -11,6 +11,16 @@ body {
       margin-bottom: 0px;
       margin-top: 50px;
       text-align: left;
+      .jq-regular {
+        color: #4073FF;
+      }
+      .jq-function {
+        color: #5CB85C;
+        font-style: italic;
+      }
+      .jq-special {
+        color: #FF5C97;
+      }
     }
     #facebook-button-container {
       @include span-columns(6 of 10);
@@ -33,27 +43,5 @@ body {
   }
 }
 
-a:hover#facebook-button{
-  
-}
 
-#facebook-button{
-  
-}
 
-#sign_in_subtitle{
-  
-}
-
-.jq-regular {
-  color: #4073FF;
-}
-
-.jq-function {
-  color: #5CB85C;
-  font-style: italic;
-}
-
-.jq-special {
-  color: #FF5C97;
-}
