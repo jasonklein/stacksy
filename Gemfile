@@ -22,7 +22,6 @@ gem 'devise'
 gem 'omniauth-facebook'
 
 gem 'haml-rails'
-gem 'sunspot_rails'
 gem 'ransack'
 gem 'cancan'
 gem 'geocoder'
